@@ -1,5 +1,6 @@
 package tuples;
 
+import com.gigaspaces.annotation.pojo.SpaceId;
 import interfaces.*;
 import others.Direction;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -7,28 +8,27 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 /**
  * Created by tobi on 31.03.14.
  */
-public class NoCar implements interfaces.Car{
+public class NoCarTupel{
 
-    public NoCar() {
+    Integer id = -1;
+
+    public NoCarTupel() {
     }
 
-    @Override
     public Direction getDirection() {
         return Direction.TODECIDE;
     }
 
-    @Override
     public void setDirection(Direction direction) {
         throw new NotImplementedException();
     }
 
-    @Override
-    public int getId() {
-        return -1;
+    @SpaceId
+    public Integer getId() {
+        return id;
     }
 
-    @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         throw new NotImplementedException();
     }
 }

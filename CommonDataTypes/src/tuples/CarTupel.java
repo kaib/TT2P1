@@ -8,36 +8,32 @@ import others.Direction;
 /**
  * Created by tobi on 31.03.14.
  */
-public class Car implements interfaces.Car {
+public class CarTupel {
 
     private Direction direction;
-    private int id;
+    private Integer id;
 
-    public Car(){};
+    public CarTupel(){};
 
-    public Car(int id, Direction direction){
+    public CarTupel(int id, Direction direction){
         this.direction = direction;
         this.id = id;
     }
 
-    @Override
     public Direction getDirection() {
         return direction;
     }
 
-    @Override
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
-    @Override
     @SpaceId
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

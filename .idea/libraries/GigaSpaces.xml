@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="file://$PROJECT_DIR$/lib/required" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/docs/xap-javadoc.zip!/" />
+    </JAVADOC>
     <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/lib/required" recursive="false" />
   </library>

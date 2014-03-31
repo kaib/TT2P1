@@ -6,9 +6,6 @@ import com.gigaspaces.annotation.pojo.SpaceId;
  * Created by tobi on 31.03.14.
  */
 public interface Configuration {
-    boolean isAlreadyConfigured();
-
-    void setAlreadyConfigured(boolean alreadyConfigured);
 
     int getMapSizeX();
 
