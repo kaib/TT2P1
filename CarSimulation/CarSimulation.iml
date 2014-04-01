@@ -10,6 +10,8 @@
     <orderEntry type="library" name="GigaSpaces" level="project" />
     <orderEntry type="module" module-name="GigaSpaceConnector" />
     <orderEntry type="module" module-name="CommonDataTypes" />
+    <orderEntry type="module" module-name="GigaSpaceConnector" />
+    <orderEntry type="module" module-name="CommonDataTypes" />
   </component>
 </module>
 
