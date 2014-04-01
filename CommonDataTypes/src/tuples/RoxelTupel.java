@@ -1,6 +1,7 @@
 package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 
 import java.util.UUID;
 

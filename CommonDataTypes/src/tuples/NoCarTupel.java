@@ -1,6 +1,7 @@
 package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceIndex;
 import interfaces.*;
 import others.Direction;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -23,6 +24,7 @@ public class NoCarTupel{
         throw new NotImplementedException();
     }
 
+    @SpaceIndex
     @SpaceId
     public Integer getId() {
         return id;

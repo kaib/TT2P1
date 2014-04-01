@@ -1,6 +1,7 @@
 package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceIndex;
 import others.Direction;
 
 
@@ -28,6 +29,7 @@ public class CarTupel {
         this.direction = direction;
     }
 
+    @SpaceIndex
     @SpaceId
     public Integer getId() {
         return id;

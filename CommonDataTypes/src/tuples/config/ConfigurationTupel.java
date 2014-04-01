@@ -94,7 +94,7 @@ public class ConfigurationTupel {
     }
 
 
-    @SpaceId
+    @SpaceId(autoGenerate = false)
     public void setId(Integer id) {
         this.id = id;
     }

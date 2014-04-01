@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CarSimulation/CarSimulation.iml" filepath="$PROJECT_DIR$/CarSimulation/CarSimulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonDataTypes/CommonDataTypes.iml" filepath="$PROJECT_DIR$/CommonDataTypes/CommonDataTypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GigaSpaceConnector/GigaSpaceConnector.iml" filepath="$PROJECT_DIR$/GigaSpaceConnector/GigaSpaceConnector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Initializer/Initializer.iml" filepath="$PROJECT_DIR$/Initializer/Initializer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Viewer/Viewer.iml" filepath="$PROJECT_DIR$/Viewer/Viewer.iml" />
+    </modules>
+  </component>
+</project>
+
