@@ -12,6 +12,10 @@ public class GigaSpaceConnector {
     private static GigaSpace gigaSpace;
 
 
+    /**
+     * Liefert eine Instanz des gigaSpaces für die Applikation zurück
+     * @return
+     */
     public static GigaSpace getGigaSpace(){
         if (gigaSpace == null){
             UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/carSimulation");

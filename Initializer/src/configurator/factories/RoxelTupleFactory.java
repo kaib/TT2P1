@@ -1,6 +1,6 @@
 package configurator.factories;
 
-import configurator.IdGenerator;
+import others.IdGenerator;
 import tuples.RoxelTuple;
 
 import java.util.ArrayList;
@@ -14,18 +14,22 @@ public class RoxelTupleFactory {
     public RoxelTupleFactory() {
     }
 
+    /**
+     * Straßennetz anhand der Map-Größe und Häuser-Block-Größe erzeugen
+     * @param blockSize
+     * @param mapSizeX
+     * @param mapSizeY
+     * @return
+     */
     public List<RoxelTuple> createRoxelTuples(int blockSize, int mapSizeX, int mapSizeY) {
         List<RoxelTuple> roxels = new ArrayList<>();
-        int streetOnElem = blockSize+1;
-        for (int x = 0; x<= mapSizeX; x++){
-            if ((x%streetOnElem)==0){
-                for (int y = 0; y<= mapSizeY; y++){
-                    if ((y%streetOnElem)==0){
-                        roxels.add(createRoxelTuple(x,y));
-                    }
+        int roxelDistance = blockSize+1;
+        for (int x = 0; x < mapSizeX; x++) {
+            for (int y = 0; y < mapSizeY; y++) {
+                if (x%roxelDistance==0 || y%roxelDistance==0){
+                    roxels.add(createRoxelTuple(x,y));
                 }
             }
-
         }
         return roxels;
     }

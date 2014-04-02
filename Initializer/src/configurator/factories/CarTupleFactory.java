@@ -1,6 +1,6 @@
 package configurator.factories;
 
-import configurator.IdGenerator;
+import others.IdGenerator;
 import interfaces.CarTuple;
 import others.Direction;
 import tuples.NoCarTuple;
@@ -13,6 +13,8 @@ import java.util.List;
  * Factory for CarTuples
  */
 public class CarTupleFactory {
+
+    public static final NoCarTuple noCarTuple = new NoCarTuple();
 
     public CarTupleFactory() {
     }
@@ -30,6 +32,6 @@ public class CarTupleFactory {
     }
 
     public CarTuple createNoCarTuple(){
-        return new NoCarTuple();
+        return noCarTuple;
     }
 }

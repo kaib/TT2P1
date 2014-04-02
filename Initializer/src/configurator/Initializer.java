@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * Created by tobi on 31.03.14.
  */
-public class Configurator {
+public class Initializer {
 
     private int mapSizeX;
     private int mapSizeY;
@@ -26,7 +26,7 @@ public class Configurator {
     private GigaSpace gigaspace;
 
 
-    public Configurator(GigaSpace gigaspace){
+    public Initializer(GigaSpace gigaspace){
         this.gigaspace = gigaspace;
     }
 
@@ -83,6 +83,10 @@ public class Configurator {
         return config == null ? false : true;
     }
 
+
+    /**
+     * Führt die Konfiguration aus, falls kein ConfigurationTuple im TupleSpace liegt
+     */
     public void runConfigurationIfNecessary(){
         if (!isConfigured()) {
             configure();
@@ -91,13 +95,21 @@ public class Configurator {
     }
 
     private void configure(){
-        List<CarTuple> cars =new CarTupleFactory().createCarTuples(numberOfCars);
+        CarTupleFactory carTupleFactory = new CarTupleFactory();
+        List<CarTuple> cars = carTupleFactory.createCarTuples(numberOfCars);
         List<RoxelTuple> roxels = new RoxelTupleFactory().createRoxelTuples(blockSize, mapSizeX, mapSizeY);
         placeCars(cars,roxels);
+        cars.add(carTupleFactory.createNoCarTuple());
         gigaspace.writeMultiple(cars.toArray());
         gigaspace.writeMultiple(roxels.toArray());
     }
 
+
+    /**
+     * Platziert alle Autos aus der Liste cars zufällig auf Roxel aus der Liste Roxels
+     * @param cars
+     * @param roxels
+     */
     private void placeCars(List<CarTuple> cars, List<RoxelTuple> roxels){
         List<RoxelTuple> freeRoxels = new ArrayList<>(roxels);
         int streetOnElem = blockSize+1;

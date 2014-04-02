@@ -1,9 +1,12 @@
 package starter;
 
 
-import org.openspaces.core.GigaSpace;
 import connector.GigaSpaceConnector;
-import tuples.RoxelTuple;
+import org.openspaces.core.GigaSpace;
+import simulation.CarPool;
+import tuples.config.ConfigurationTupel;
+
+import static others.GlobalConstances.NO_TIMEOUT;
 
 
 /**
@@ -15,8 +18,16 @@ public class Starter {
     public static void main(String[] arg){
         gigaspace = GigaSpaceConnector.getGigaSpace();
 
-        RoxelTuple r = gigaspace.read(new RoxelTuple());
-        RoxelTuple r2 = gigaspace.read(new RoxelTuple(), 10000);
+        //Warten, bis initialisierung abgeschlossen wurde...
+        ConfigurationTupel ct = gigaspace.read(new ConfigurationTupel(), NO_TIMEOUT);
+        //... und erst dann gehts weiter.
+
+        //CarPool mit X Threads erzeugen...
+        CarPool carPool = new CarPool(3);
+
+        //Carpools starten alle CarThreads
+        carPool.startAllCars();
+
         System.out.println("End");
     }
 
