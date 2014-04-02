@@ -2,31 +2,29 @@ package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
+import interfaces.CarTuple;
 import others.Direction;
-
-
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by tobi on 31.03.14.
  */
-public class CarTupel {
+public class NoCarTuple implements CarTuple{
 
-    private Direction direction;
-    private Integer id;
+    private Direction direction = Direction.TODECIDE;
+    private Integer id = -1;
 
-    public CarTupel(){};
-
-    public CarTupel(int id, Direction direction){
-        this.direction = direction;
-        this.id = id;
+    public NoCarTuple() {
     }
 
+    @Override
     public Direction getDirection() {
         return direction;
     }
 
+    @Override
     public void setDirection(Direction direction) {
-        this.direction = direction;
+        throw new NotImplementedException();
     }
 
     @SpaceIndex
@@ -35,7 +33,8 @@ public class CarTupel {
         return id;
     }
 
+    @Override
     public void setId(Integer id) {
-        this.id = id;
+        throw new NotImplementedException();
     }
 }

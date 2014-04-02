@@ -3,9 +3,7 @@ package starter;
 
 import org.openspaces.core.GigaSpace;
 import connector.GigaSpaceConnector;
-import tuples.RoxelTupel;
-
-import java.rmi.RemoteException;
+import tuples.RoxelTuple;
 
 
 /**
@@ -17,8 +15,8 @@ public class Starter {
     public static void main(String[] arg){
         gigaspace = GigaSpaceConnector.getGigaSpace();
 
-        RoxelTupel r = gigaspace.read(new RoxelTupel());
-        RoxelTupel r2 = gigaspace.read(new RoxelTupel(), 10000);
+        RoxelTuple r = gigaspace.read(new RoxelTuple());
+        RoxelTuple r2 = gigaspace.read(new RoxelTuple(), 10000);
         System.out.println("End");
     }
 

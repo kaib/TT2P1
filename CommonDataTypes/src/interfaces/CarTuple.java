@@ -1,18 +1,20 @@
 package interfaces;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceIndex;
 import others.Direction;
 
 /**
- * Created by tobi on 31.03.14.
+ * Created by tobi on 02.04.14.
  */
-public interface Car {
+public interface CarTuple {
     Direction getDirection();
 
     void setDirection(Direction direction);
 
+    @SpaceIndex
     @SpaceId
-    int getId();
+    Integer getId();
 
-    void setId(int id);
+    void setId(Integer id);
 }
