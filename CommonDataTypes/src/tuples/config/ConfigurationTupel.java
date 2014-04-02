@@ -1,6 +1,8 @@
 package tuples.config;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceIndex;
+import com.gigaspaces.metadata.index.SpaceIndexType;
 
 /**
  * Created by tobi on 31.03.14.
@@ -88,13 +90,12 @@ public class ConfigurationTupel {
         this.roxelSizeY = roxelSizeY;
     }
 
-
+    @SpaceIndex(type= SpaceIndexType.BASIC)
+    @SpaceId
     public Integer getId() {
         return id;
     }
 
-
-    @SpaceId(autoGenerate = false)
     public void setId(Integer id) {
         this.id = id;
     }

@@ -1,18 +1,14 @@
 package configurator;
 
-import interfaces.Car;
 import org.openspaces.core.GigaSpace;
-import others.ConfigurationStatus;
 import others.Direction;
 import tuples.CarTupel;
 import tuples.RoxelTupel;
-import tuples.config.ConfigStatusTupel;
 import tuples.config.ConfigurationTupel;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import static others.GlobalConstances.NO_TIMEOUT;
 
 /**
  * Created by tobi on 31.03.14.
@@ -80,31 +76,15 @@ public class Configurator {
         this.roxelSizeY = roxelSizeY;
     }
 
-    public ConfigurationStatus getConfigurationStatus(){
-        ConfigStatusTupel cst = gigaspace.readById(ConfigStatusTupel.class, 1);
-        return cst.getConfigurationStatus();
+    public String getConfigurationStatus(){
+        return "";
     }
 
     public void runConfigurationIfNecessary(){
-        ConfigurationTupel ct = gigaspace.readById(ConfigurationTupel.class,1);
-        if (ct == null && gigaspace.readById(ConfigStatusTupel.class, 1) == null){
-            ConfigStatusTupel cst = new ConfigStatusTupel(ConfigurationStatus.REQUIRED);
-            gigaspace.write(cst);
-        }
-
-        ConfigStatusTupel cst = gigaspace.takeById(ConfigStatusTupel.class, 1);
-
-        if (ConfigurationStatus.REQUIRED.equals(cst.getConfigurationStatus()))
-        {
-            gigaspace.write(new ConfigStatusTupel(ConfigurationStatus.IN_PROGRESS));
-            // configurate
-
+        ConfigurationTupel config = gigaspace.readIfExists(new ConfigurationTupel());
+        if (config == null) {
+            configure();
             gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY));
-            gigaspace.takeById(ConfigStatusTupel.class, 1);
-            gigaspace.write(new ConfigStatusTupel(ConfigurationStatus.DONE));
-
-        } else {
-            gigaspace.write(cst);
         }
     }
 
@@ -118,13 +98,12 @@ public class Configurator {
 
     private List<RoxelTupel> createRoxels() {
         List<RoxelTupel> roxels = new ArrayList<>();
-        int roxelID=0;
         int streetOnElem = blockSize+1;
         for (int x = 0; x<= mapSizeX; x++){
             if ((x%streetOnElem)==0){
                 for (int y = 0; y<= mapSizeY; y++){
                     if ((y%streetOnElem)==0){
-                        roxels.add(new RoxelTupel(roxelID++,x,y,-1));
+                        roxels.add(new RoxelTupel(IdGenerator.getNewID(),x,y,-1));
                     }
                 }
             }
@@ -136,7 +115,7 @@ public class Configurator {
     private List<CarTupel> createCars(){
         List<CarTupel> cars = new ArrayList<>();
         for (int i = 0; i<=numberOfCars; i++){
-            cars.add(new CarTupel(i,Direction.TODECIDE));
+            cars.add(new CarTupel(IdGenerator.getNewID(),Direction.TODECIDE));
         }
         return cars;
     }

@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
  * Created by tobi on 01.04.14.
  */
 public class Starter {
-    private static final boolean resetTupleSpaceOnStart = true;
+    private static final boolean resetTupleSpaceOnStart = false;
     private static GigaSpace gigaspace;
 
     public static void main(String[] args){
