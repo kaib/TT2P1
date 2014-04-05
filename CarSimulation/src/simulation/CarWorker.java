@@ -1,10 +1,15 @@
 package simulation;
 
+import com.gigaspaces.client.ChangeSet;
+import com.gigaspaces.query.IdQuery;
 import com.j_spaces.core.client.SQLQuery;
 import connector.GigaSpaceConnector;
 import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
+import others.CarLocation;
+import others.Direction;
 import others.IdGenerator;
+import tuples.CarPositionUpdateTuple;
 import tuples.RealCarTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
@@ -81,6 +86,23 @@ public class CarWorker extends Thread {
         }
     }
 
+    private void drive(Direction direction) {
+        switch (car.getDirection()){
+            case EAST:
+                driveEast();
+                break;
+            case WEST:
+                driveWest();
+                break;
+            case SOUTH:
+                driveSouth();
+                break;
+            case NORTH:
+                driveNorth();
+                break;
+        }
+    }
+
     private void driveNorth() {
         RoxelTuple current = takeCurrentRoxel();
         int currentY = current.getPositionY();
@@ -98,6 +120,7 @@ public class CarWorker extends Thread {
         SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId = ? AND positionY = ? AND positionX = ?",-1,nextY,current.getPositionX());
         RoxelTuple next = takeNextRoxel(sql);
         changePosition(current,next);
+
         releaseRoxel(current,next);
     }
 
@@ -120,8 +143,6 @@ public class CarWorker extends Thread {
         changePosition(current,next);
         releaseRoxel(current,next);
     }
-
-
 
     private void releaseAllTuple(){}
 
@@ -152,8 +173,16 @@ public class CarWorker extends Thread {
     }
 
     private void releaseRoxel(RoxelTuple from, RoxelTuple to){
-        gigaSpace.write(from);
-        gigaSpace.write(to);
+        RoxelTuple[] updateRoxels = {from,to};
+        gigaSpace.writeMultiple(updateRoxels);
+        updateLocation(new CarLocation(to.getPositionX(), to.getPositionY()));
+    }
+
+    private void updateLocation(CarLocation location) {
+        SQLQuery<CarPositionUpdateTuple> idQuery = new SQLQuery<>(CarPositionUpdateTuple.class,"carId = ?");
+        idQuery.setParameter(1,car.getId());
+        gigaSpace.change(idQuery, new ChangeSet().increment("logicalTimeStamp", 1L)
+                .set("location", location));
     }
 
 

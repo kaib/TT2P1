@@ -7,6 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="CommonDataTypes" />
+    <orderEntry type="module" module-name="GigaSpaceConnector" />
+    <orderEntry type="library" name="JGameGrid" level="project" />
+    <orderEntry type="library" name="GigaSpaces" level="project" />
   </component>
 </module>
 

@@ -4,14 +4,14 @@ import java.awt.*;
 
 public class StreetPart extends Actor
 {
-    public StreetPart()
+    private Location location;
+    public StreetPart(Location location)
     {
-
         super("media/street-grey.png");
+        this.location=location;
     }
 
-    public void act()
-    {
-
+    public Location getLocation() {
+        return location;
     }
-} 
+}
