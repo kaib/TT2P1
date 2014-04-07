@@ -29,7 +29,7 @@ public class Karte
         System.out.println(configurationTupel.getBlockSize());
         this.streetPartFactory = new StreetPartFactory(new Location(configurationTupel.getMapSizeX(), configurationTupel.getMapSizeY()),configurationTupel.getBlockSize());
        gameGrid =
-                new GameGrid(configurationTupel.getMapSizeX(), configurationTupel.getMapSizeY(), 30, Color.red);
+                new GameGrid(configurationTupel.getMapSizeX(), configurationTupel.getMapSizeY(), 30, "/../media/city_above.png");
 
         for(StreetPart streetPart : streetPartFactory.getStreetPartList()) {
             gameGrid.addActor(streetPart, streetPart.getLocation());

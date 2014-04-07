@@ -6,9 +6,15 @@ import ch.aplu.jgamegrid.Location;
 public class StreetPart extends Actor
 {
     private Location location;
+    public StreetPart(Location location, String image)
+    {
+        super(image);
+        this.location=location;
+    }
+
     public StreetPart(Location location)
     {
-        super("media/street-grey.png");
+        super("/../media/street-grey.png");
         this.location=location;
     }
 

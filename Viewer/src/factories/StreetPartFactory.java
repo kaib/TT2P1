@@ -28,16 +28,20 @@ public class StreetPartFactory {
 
     private List<StreetPart> createStreetParts(){
         List<StreetPart> result = new LinkedList<>();
-        for(int x = 0; x < boardSize.getX(); x+= blockSize +1) {
-            for(int y = 0; y < boardSize.getY(); y++) {
-                result.add(new StreetPart(new Location(x,y)));
-            }
-        }
         for(int x = 0; x < boardSize.getX(); x++) {
-            for(int y = 0; y < boardSize.getY(); y+= blockSize+1) {
-                result.add(new StreetPart(new Location(x,y)));
+            for(int y = 0; y < boardSize.getY(); y++) {
+                if((x%(blockSize+1) == 0) && (y%(blockSize+1) == 0)) {
+                    result.add(new StreetPart(new Location(x,y),"/../media/street-kreutz.png"));
+                }
+                else if((x%(blockSize+1) != 0) && (y%(blockSize+1) == 0)) {
+                    result.add(new StreetPart(new Location(x,y),"/../media/street-east.png"));
+                }
+                else if((x%(blockSize+1) == 0) && (y%(blockSize+1) != 0)) {
+                    result.add(new StreetPart(new Location(x,y),"/../media/street-south.png"));
+                }
             }
         }
         return result;
     }
+
 }
