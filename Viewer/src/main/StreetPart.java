@@ -1,6 +1,7 @@
-import ch.aplu.jgamegrid.*;
+package main;
 
-import java.awt.*;
+import ch.aplu.jgamegrid.Actor;
+import ch.aplu.jgamegrid.Location;
 
 public class StreetPart extends Actor
 {

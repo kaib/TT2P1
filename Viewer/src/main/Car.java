@@ -1,3 +1,5 @@
+package main;
+
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.Location;
 

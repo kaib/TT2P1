@@ -1,3 +1,5 @@
+package main;
+
 import ch.aplu.jgamegrid.*;
 import connector.GigaSpaceConnector;
 import factories.StreetPartFactory;
@@ -55,9 +57,9 @@ public class Karte
             carActors.put(car.getId(), car);
         }
         updateActors();
-        /*gameGrid.removeActors(Car.class);
-        for(Car car : carActors.values()) {
-            System.out.println("Add Car: " + car);
+        /*gameGrid.removeActors(main.Car.class);
+        for(main.Car car : carActors.values()) {
+            System.out.println("Add main.Car: " + car);
             gameGrid.addActor(car,car.getOurLocation());
         }*/
     }

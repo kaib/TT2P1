@@ -1,6 +1,7 @@
 package factories;
 
 import ch.aplu.jgamegrid.Location;
+import main.StreetPart;
 
 import java.util.LinkedList;
 import java.util.List;
