@@ -1,5 +1,6 @@
 import ch.aplu.jgamegrid.*;
 import connector.GigaSpaceConnector;
+import factories.StreetPartFactory;
 import org.openspaces.core.GigaSpace;
 import others.CarLocation;
 import tuples.CarPositionUpdateTuple;
@@ -40,6 +41,7 @@ public class Karte
         List<Car> result = new LinkedList<>();
         CarPositionUpdateTuple[] carUpdates;
         carUpdates = gigaSpace.readMultiple(new CarPositionUpdateTuple());
+
         for(CarPositionUpdateTuple updateTuple : carUpdates) {
             System.out.println("Moving: " + updateTuple.getCarId() + " to: " +updateTuple.getLocation().getX() + "/" + updateTuple.getLocation().getY() );
             result.add(new Car(updateTuple.getCarId(), mapLocations(updateTuple.getLocation())));

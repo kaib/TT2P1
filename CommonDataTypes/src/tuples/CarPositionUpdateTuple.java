@@ -18,7 +18,7 @@ public class CarPositionUpdateTuple {
 
     public CarPositionUpdateTuple(CarLocation carLocation, int carId, long logicalTimeStamp) {
         this.carId = carId;
-        this.location = location;
+        this.location = carLocation;
         this.logicalTimeStamp = logicalTimeStamp;
     }
 

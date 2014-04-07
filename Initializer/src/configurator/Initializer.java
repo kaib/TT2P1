@@ -1,10 +1,12 @@
 package configurator;
 
+import configurator.factories.CarPositionUpdateTupleFactory;
 import configurator.factories.CarTupleFactory;
 import configurator.factories.RoxelTupleFactory;
 import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
 import others.Direction;
+import tuples.CarPositionUpdateTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
 
@@ -99,9 +101,11 @@ public class Initializer {
         List<CarTuple> cars = carTupleFactory.createCarTuples(numberOfCars);
         List<RoxelTuple> roxels = new RoxelTupleFactory().createRoxelTuples(blockSize, mapSizeX, mapSizeY);
         placeCars(cars,roxels);
+        List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxels);
         cars.add(carTupleFactory.createNoCarTuple());
         gigaspace.writeMultiple(cars.toArray());
         gigaspace.writeMultiple(roxels.toArray());
+        gigaspace.writeMultiple(carPostionUpdates.toArray());
     }
 
 

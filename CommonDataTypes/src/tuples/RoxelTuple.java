@@ -53,4 +53,14 @@ public class RoxelTuple {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "RoxelTuple{" +
+                "positionX=" + positionX +
+                ", PositionY=" + PositionY +
+                ", id=" + id +
+                ", carId=" + carId +
+                '}';
+    }
 }
