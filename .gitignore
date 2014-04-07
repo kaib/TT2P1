@@ -14,3 +14,8 @@ hs_err_pid*
 #unnessesary IntelliJ Files
 **/.idea/workspace.xml
 **/.idea/tasks.xml
+.idea/workspace.xml
+.idea/tasks.xml
+
+/out
+/logs

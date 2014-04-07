@@ -1,3 +1,5 @@
+package factories;
+
 import ch.aplu.jgamegrid.Location;
 
 import java.util.LinkedList;
