@@ -11,7 +11,7 @@ public class Car extends Actor {
     private Location ourLocation;
     public Car(int id, Location location)
     {
-        super(true, "/../media/carFront.png");
+        super(true, "/../media/carfront.png");
         this.ourLocation = location;
         this.id = id;
     }
