@@ -1,22 +1,26 @@
 package main;
 
-import ch.aplu.jgamegrid.*;
+import ch.aplu.jgamegrid.Actor;
+import ch.aplu.jgamegrid.GameGrid;
+import ch.aplu.jgamegrid.Location;
 import connector.GigaSpaceConnector;
 import factories.StreetPartFactory;
 import org.openspaces.core.GigaSpace;
 import others.CarLocation;
 import tuples.CarPositionUpdateTuple;
 import tuples.config.ConfigurationTupel;
-import static others.GlobalConstances.*;
-import java.awt.Color;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
+
+import static others.GlobalConstances.NO_TIMEOUT;
 
 public class Karte
 {
-
+    private static final Logger log = Logger.getLogger( Karte.class.getName() );
     private GigaSpace gigaSpace;
     private ConfigurationTupel configurationTupel;
     private StreetPartFactory streetPartFactory;
@@ -45,7 +49,7 @@ public class Karte
         carUpdates = gigaSpace.readMultiple(new CarPositionUpdateTuple());
 
         for(CarPositionUpdateTuple updateTuple : carUpdates) {
-            System.out.println("Moving: " + updateTuple.getCarId() + " to: " +updateTuple.getLocation().getX() + "/" + updateTuple.getLocation().getY() );
+            log.info(String.format("Moving: %d to: %d/%d", updateTuple.getCarId(), updateTuple.getLocation().getX(), updateTuple.getLocation().getY()));
             result.add(new Car(updateTuple.getCarId(), mapLocations(updateTuple.getLocation())));
         }
         return result;
@@ -90,6 +94,8 @@ public class Karte
 
     public static void main(String[] args)
     {
+        System.out.println("Working Directory = " +
+                System.getProperty("user.dir"));
         Karte karte = new Karte();
         while(true) {
             karte.doStep();
