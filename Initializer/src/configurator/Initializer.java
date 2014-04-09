@@ -10,9 +10,7 @@ import tuples.CarPositionUpdateTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by tobi on 31.03.14.
@@ -100,8 +98,9 @@ public class Initializer {
         CarTupleFactory carTupleFactory = new CarTupleFactory();
         List<CarTuple> cars = carTupleFactory.createCarTuples(numberOfCars);
         List<RoxelTuple> roxels = new RoxelTupleFactory().createRoxelTuples(blockSize, mapSizeX, mapSizeY);
-        placeCars(cars,roxels);
-        List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxels);
+        Map<RoxelTuple, CarTuple> roxelCarMap = placeCars(cars, roxels);
+
+        List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxelCarMap);
         cars.add(carTupleFactory.createNoCarTuple());
         gigaspace.writeMultiple(cars.toArray());
         gigaspace.writeMultiple(roxels.toArray());
@@ -114,8 +113,9 @@ public class Initializer {
      * @param cars
      * @param roxels
      */
-    private void placeCars(List<CarTuple> cars, List<RoxelTuple> roxels){
+    private Map<RoxelTuple, CarTuple> placeCars(List<CarTuple> cars, List<RoxelTuple> roxels){
         List<RoxelTuple> freeRoxels = new ArrayList<>(roxels);
+        Map<RoxelTuple, CarTuple> result = new HashMap<RoxelTuple, CarTuple>();
         int streetOnElem = blockSize+1;
         Random rand = new Random();
         for (CarTuple car : cars){
@@ -135,6 +135,8 @@ public class Initializer {
             } else if ((currentRoxel.getPositionY()%streetOnElem)==0){
                 car.setDirection(Direction.EAST);
             }
+            result.put(currentRoxel, car);
         }
+        return result;
     }
 }

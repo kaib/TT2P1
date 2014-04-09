@@ -50,7 +50,7 @@ public class Karte
 
         for(CarPositionUpdateTuple updateTuple : carUpdates) {
             log.info(String.format("Moving: %d to: %d/%d", updateTuple.getCarId(), updateTuple.getLocation().getX(), updateTuple.getLocation().getY()));
-            result.add(new Car(updateTuple.getCarId(), mapLocations(updateTuple.getLocation())));
+            result.add(new Car(updateTuple.getCarId(), mapLocations(updateTuple.getLocation()), updateTuple.getDirection()));
         }
         return result;
     }

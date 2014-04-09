@@ -7,6 +7,7 @@ import tuples.RoxelTuple;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Dient dem Erstellen der CarPositionUpdateTuple. Diese können von einem entsprechenden Viewer gelesen
@@ -17,18 +18,16 @@ public class CarPositionUpdateTupleFactory {
 
     public CarPositionUpdateTupleFactory(){}
 
-    public List<CarPositionUpdateTuple> createCarPositionUpdateTuples(List<RoxelTuple> roxels){
+    public List<CarPositionUpdateTuple> createCarPositionUpdateTuples(Map<RoxelTuple,CarTuple> roxelCarMap){
         List<CarPositionUpdateTuple> carPositionUpdateTupleList = new LinkedList<>();
-        for(RoxelTuple roxel:roxels) {
-            System.out.println(roxel);
-            if(roxel.getCarId() != -1) {
-                carPositionUpdateTupleList.add(createCarPostionUpdateTuple(roxel));
-            }
+        for(Map.Entry<RoxelTuple,CarTuple> entry : roxelCarMap.entrySet()) {
+            System.out.println(entry.getKey());
+            carPositionUpdateTupleList.add(createCarPostionUpdateTuple(entry.getKey(), entry.getValue()));
         }
         return carPositionUpdateTupleList;
     }
 
-    public CarPositionUpdateTuple createCarPostionUpdateTuple(RoxelTuple roxel) {
-        return new CarPositionUpdateTuple(new CarLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCarId(),0L);
+    public CarPositionUpdateTuple createCarPostionUpdateTuple(RoxelTuple roxel, CarTuple car) {
+        return new CarPositionUpdateTuple(new CarLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCarId(),0L, car.getDirection());
     }
 }

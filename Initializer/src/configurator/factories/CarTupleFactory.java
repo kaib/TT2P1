@@ -21,7 +21,7 @@ public class CarTupleFactory {
 
     public List<CarTuple> createCarTuples(int numberOfCars){
         List<CarTuple> cars = new ArrayList<>();
-        for (int i = 0; i<=numberOfCars; i++){
+        for (int i = 0; i<numberOfCars; i++){
             cars.add(createCarTuple());
         }
         return cars;

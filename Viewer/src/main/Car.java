@@ -2,6 +2,7 @@ package main;
 
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.Location;
+import others.Direction;
 
 /**
  * Created by dude on 03.04.2014.
@@ -9,11 +10,33 @@ import ch.aplu.jgamegrid.Location;
 public class Car extends Actor {
     private int id;
     private Location ourLocation;
-    public Car(int id, Location location)
+    public Car(int id, Location location, Direction direction)
     {
-        super(true, "/../media/carfront.png");
+        super(true, getCarImagePath(direction));
         this.ourLocation = location;
         this.id = id;
+    }
+
+    public static String getCarImagePath(Direction direction){
+        String result;
+        switch (direction){
+            case EAST:
+                result = "/../media/carEast.png";
+                break;
+            case WEST:
+                result = "/../media/carWest.png";
+                break;
+            case SOUTH:
+                result = "/../media/carSouth.png";
+                break;
+            case NORTH:
+                result = "/../media/carNorth.png";
+                break;
+            default:
+                result = "/../media/carfront.png";
+                break;
+        }
+        return result;
     }
 
     public int getId(){

@@ -1,10 +1,8 @@
 package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
-import com.gigaspaces.annotation.pojo.SpaceIndex;
 import others.CarLocation;
 import others.Direction;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by Sebastian on 05.04.2014.
@@ -15,11 +13,14 @@ public class CarPositionUpdateTuple {
     private String id;
     private CarLocation location;
     private Integer carId;
+    private Direction direction;
 
-    public CarPositionUpdateTuple(CarLocation carLocation, int carId, long logicalTimeStamp) {
+
+    public CarPositionUpdateTuple(CarLocation carLocation, int carId, long logicalTimeStamp, Direction direction) {
         this.carId = carId;
         this.location = carLocation;
         this.logicalTimeStamp = logicalTimeStamp;
+        this.direction = direction;
     }
 
     public CarPositionUpdateTuple() {  }
@@ -57,5 +58,11 @@ public class CarPositionUpdateTuple {
         this.carId = carId;
     }
 
+    public Direction getDirection() {
+        return direction;
+    }
 
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
 }
