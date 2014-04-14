@@ -1,13 +1,16 @@
 package configurator.factories;
 
+import others.Direction;
 import others.IdGenerator;
 import tuples.RoxelTuple;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by tobi on 02.04.14.
+ * Edited by Kai 14.04.14.
  */
 public class RoxelTupleFactory {
 
@@ -15,12 +18,7 @@ public class RoxelTupleFactory {
     }
 
     /**
-     * Straßennetz anhand der Map-Größe und Häuser-Block-Größe erzeugen
-     * @param blockSize
-     * @param mapSizeX
-     * @param mapSizeY
-     * @return
-     */
+
     public List<RoxelTuple> createRoxelTuples(int blockSize, int mapSizeX, int mapSizeY) {
         List<RoxelTuple> roxels = new ArrayList<>();
         int roxelDistance = blockSize+1;
@@ -32,9 +30,34 @@ public class RoxelTupleFactory {
             }
         }
         return roxels;
+    }*/
+
+
+    public RoxelTuple createRoxelTuple(int positionX, int positionY, Direction direction){
+        return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,-1, direction);
     }
 
-    public RoxelTuple createRoxelTuple(int positionX, int positionY){
-        return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,-1);
+    /**
+     * New Roxel Tuple Factory with directions!
+     * @param blockSize
+     * @param mapSizeX
+     * @param mapSizeY
+     * @return
+     */
+    public List<RoxelTuple> createRoxelTuples(int blockSize, int mapSizeX, int mapSizeY) {
+        List<RoxelTuple> result = new LinkedList<>();
+        for (int x = 0; x < mapSizeX; x++) {
+            for (int y = 0; y < mapSizeY; y++) {
+                if ((x % (blockSize + 1) == 0) && (y % (blockSize + 1) == 0)) {
+                    //Kreuzung
+                    result.add(createRoxelTuple(x,y,Direction.TODECIDE));
+                } else if ((x % (blockSize + 1) != 0) && (y % (blockSize + 1) == 0)) {
+                    result.add(createRoxelTuple(x,y,Direction.EAST));
+                } else if ((x % (blockSize + 1) == 0) && (y % (blockSize + 1) != 0)) {
+                    result.add(createRoxelTuple(x,y,Direction.SOUTH));
+                }
+            }
+        }
+        return result;
     }
 }

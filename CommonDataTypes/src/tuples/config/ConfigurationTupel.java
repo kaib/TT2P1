@@ -3,6 +3,10 @@ package tuples.config;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
 import com.gigaspaces.metadata.index.SpaceIndexType;
+import interfaces.CarTuple;
+import tuples.RoxelTuple;
+
+import java.util.List;
 
 /**
  * Created by tobi on 31.03.14.
@@ -15,12 +19,13 @@ public class ConfigurationTupel {
     private Integer blockSize;
     private Integer roxelSizeX;
     private Integer roxelSizeY;
+    private List<RoxelTuple> roxels;
 
     private Integer id;
 
     public ConfigurationTupel(){};
 
-    public ConfigurationTupel(Integer id, Integer mapSizeX, Integer mapSizeY, Integer numberOfCars, Integer blockSize, Integer roxelSizeX, Integer roxelSizeY) {
+    public ConfigurationTupel(Integer id, Integer mapSizeX, Integer mapSizeY, Integer numberOfCars, Integer blockSize, Integer roxelSizeX, Integer roxelSizeY, List<RoxelTuple> roxels) {
         this.mapSizeX = mapSizeX;
         this.mapSizeY = mapSizeY;
         this.numberOfCars = numberOfCars;
@@ -28,9 +33,16 @@ public class ConfigurationTupel {
         this.roxelSizeX = roxelSizeX;
         this.roxelSizeY = roxelSizeY;
         this.id = id;
+        this.roxels = roxels;
     }
 
+    public List<RoxelTuple> getRoxels() {
+        return roxels;
+    }
 
+    public void setRoxels(List<RoxelTuple> roxels) {
+        this.roxels = roxels;
+    }
 
     public Integer getMapSizeX() {
         return mapSizeX;

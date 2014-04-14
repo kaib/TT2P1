@@ -1,6 +1,7 @@
 package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceId;
+import others.Direction;
 
 /**
  * Created by tobi on 31.03.14.
@@ -10,15 +11,25 @@ public class RoxelTuple {
     private Integer PositionY;
     private Integer id;
     private Integer carId;
+    private Direction direction;
 
     public RoxelTuple() {
     }
 
-    public RoxelTuple(Integer id, Integer positionX, Integer positionY, Integer carId) {
+    public RoxelTuple(Integer id, Integer positionX, Integer positionY, Integer carId, Direction direction) {
         this.positionX = positionX;
         this.PositionY = positionY;
         this.id = id;
         this.carId = carId;
+        this.direction = direction;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
     }
 
     public Integer getCarId() {
@@ -61,6 +72,7 @@ public class RoxelTuple {
                 ", PositionY=" + PositionY +
                 ", id=" + id +
                 ", carId=" + carId +
+                ", Direction=" + direction +
                 '}';
     }
 
