@@ -1,5 +1,6 @@
 package tuples;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import others.CarLocation;
 import others.Direction;
@@ -7,6 +8,7 @@ import others.Direction;
 /**
  * Created by Sebastian on 05.04.2014.
  */
+@SpaceClass
 public class CarPositionUpdateTuple {
 
     private Long logicalTimeStamp;

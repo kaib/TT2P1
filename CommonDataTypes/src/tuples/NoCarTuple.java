@@ -1,5 +1,6 @@
 package tuples;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
 import interfaces.CarTuple;
@@ -9,13 +10,13 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 /**
  * Created by tobi on 31.03.14.
  */
+@SpaceClass
 public class NoCarTuple implements CarTuple{
 
     private Direction direction = Direction.TODECIDE;
     private Integer id = -1;
 
-    public NoCarTuple() {
-    }
+    public NoCarTuple() {}
 
     @Override
     public Direction getDirection() {

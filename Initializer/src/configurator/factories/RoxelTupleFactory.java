@@ -4,7 +4,6 @@ import others.Direction;
 import others.IdGenerator;
 import tuples.RoxelTuple;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -60,4 +59,5 @@ public class RoxelTupleFactory {
         }
         return result;
     }
+
 }

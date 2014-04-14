@@ -90,14 +90,15 @@ public class Initializer {
     public void runConfigurationIfNecessary(){
         if (!isConfigured()) {
             configure();
-            gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY));
+
         }
     }
 
     private void configure(){
         CarTupleFactory carTupleFactory = new CarTupleFactory();
         List<CarTuple> cars = carTupleFactory.createCarTuples(numberOfCars);
-        List<RoxelTuple> roxels = new RoxelTupleFactory().createRoxelTuples(blockSize, mapSizeX, mapSizeY);
+        RoxelTupleFactory roxelTupleFactory = new RoxelTupleFactory();
+        List<RoxelTuple> roxels = roxelTupleFactory.createRoxelTuples(blockSize, mapSizeX, mapSizeY);
         Map<RoxelTuple, CarTuple> roxelCarMap = placeCars(cars, roxels);
 
         List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxelCarMap);
@@ -105,7 +106,10 @@ public class Initializer {
         gigaspace.writeMultiple(cars.toArray());
         gigaspace.writeMultiple(roxels.toArray());
         gigaspace.writeMultiple(carPostionUpdates.toArray());
+        gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY, roxels));
     }
+
+
 
 
     /**

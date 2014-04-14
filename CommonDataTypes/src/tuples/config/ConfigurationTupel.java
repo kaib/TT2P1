@@ -1,9 +1,9 @@
 package tuples.config;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
 import com.gigaspaces.metadata.index.SpaceIndexType;
-import interfaces.CarTuple;
 import tuples.RoxelTuple;
 
 import java.util.List;
@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * Created by tobi on 31.03.14.
  */
+
+@SpaceClass
 public class ConfigurationTupel {
 
     private Integer mapSizeX;
@@ -110,5 +112,19 @@ public class ConfigurationTupel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ConfigurationTupel{" +
+                "roxels=" + roxels +
+                ", roxelSizeY=" + roxelSizeY +
+                ", roxelSizeX=" + roxelSizeX +
+                ", blockSize=" + blockSize +
+                ", numberOfCars=" + numberOfCars +
+                ", mapSizeY=" + mapSizeY +
+                ", mapSizeX=" + mapSizeX +
+                '}';
     }
 }

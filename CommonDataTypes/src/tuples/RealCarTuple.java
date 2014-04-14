@@ -1,5 +1,6 @@
 package tuples;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import interfaces.CarTuple;
 import others.Direction;
@@ -9,6 +10,7 @@ import others.Direction;
 /**
  * Created by tobi on 31.03.14.
  */
+@SpaceClass
 public class RealCarTuple implements CarTuple {
 
     private Direction direction;

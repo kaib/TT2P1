@@ -1,20 +1,23 @@
 package tuples;
 
+import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import others.Direction;
+
+import java.io.Serializable;
 
 /**
  * Created by tobi on 31.03.14.
  */
-public class RoxelTuple {
+@SpaceClass
+public class RoxelTuple implements Serializable{
     private Integer positionX;
     private Integer PositionY;
     private Integer id;
     private Integer carId;
     private Direction direction;
 
-    public RoxelTuple() {
-    }
+    public RoxelTuple() {}
 
     public RoxelTuple(Integer id, Integer positionX, Integer positionY, Integer carId, Direction direction) {
         this.positionX = positionX;

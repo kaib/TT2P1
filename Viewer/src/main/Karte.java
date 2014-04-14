@@ -30,8 +30,8 @@ public class Karte
     public Karte(){
         this.gigaSpace = GigaSpaceConnector.getGigaSpace();
         this.configurationTupel= gigaSpace.read(new ConfigurationTupel(), NO_TIMEOUT);
-        System.out.println(configurationTupel.getBlockSize());
-        this.streetPartFactory = new StreetPartFactory(new Location(configurationTupel.getMapSizeX(), configurationTupel.getMapSizeY()),configurationTupel.getBlockSize());
+        System.out.println(configurationTupel);
+        this.streetPartFactory = new StreetPartFactory(new Location(configurationTupel.getMapSizeX(), configurationTupel.getMapSizeY()),configurationTupel.getBlockSize(),configurationTupel.getRoxels());
        gameGrid =
                 new GameGrid(configurationTupel.getMapSizeX(), configurationTupel.getMapSizeY(), 30, "/../media/city_above.png");
 
