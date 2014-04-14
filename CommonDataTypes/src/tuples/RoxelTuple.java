@@ -16,15 +16,17 @@ public class RoxelTuple implements Serializable{
     private Integer id;
     private Integer carId;
     private Direction direction;
+    private boolean isCrossroad;
 
     public RoxelTuple() {}
 
-    public RoxelTuple(Integer id, Integer positionX, Integer positionY, Integer carId, Direction direction) {
+    public RoxelTuple(Integer id, Integer positionX, Integer positionY, Integer carId, Direction direction, boolean isCrossroad) {
         this.positionX = positionX;
         this.PositionY = positionY;
         this.id = id;
         this.carId = carId;
         this.direction = direction;
+        this.isCrossroad = isCrossroad;
     }
 
     public Direction getDirection() {
@@ -57,6 +59,14 @@ public class RoxelTuple implements Serializable{
 
     public void setPositionY(Integer positionY) {
         PositionY = positionY;
+    }
+
+    public boolean isCrossroad() {
+        return isCrossroad;
+    }
+
+    public void setCrossroad(boolean isCrossroad) {
+        this.isCrossroad = isCrossroad;
     }
 
     @SpaceId
