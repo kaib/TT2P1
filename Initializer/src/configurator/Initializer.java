@@ -123,24 +123,34 @@ public class Initializer {
         int streetOnElem = blockSize+1;
         Random rand = new Random();
         for (CarTuple car : cars){
-            RoxelTuple currentRoxel = freeRoxels.remove(rand.nextInt(freeRoxels.size()));
+            RoxelTuple currentRoxel = getNonCrossRoadRoxel(freeRoxels, rand);
             currentRoxel.setCarId(car.getId());
             // Kreuzung
-            if (((currentRoxel.getPositionX()%streetOnElem)==0) && ((currentRoxel.getPositionY()%streetOnElem)==0)){
-                if (rand.nextBoolean()){
-                    car.setDirection(Direction.SOUTH);
-                } else {
-                    car.setDirection(Direction.EAST);
-                }
-            //Nord-Süd-Verbindung
-            } else if ((currentRoxel.getPositionX()%streetOnElem)==0){
+//            if (((currentRoxel.getPositionX() % streetOnElem) == 0) && ((currentRoxel.getPositionY() % streetOnElem) == 0)) {
+//                if (rand.nextBoolean()) {
+//                    car.setDirection(Direction.SOUTH);
+//                } else {
+//                    car.setDirection(Direction.EAST);
+//                }
+//
+//            } else
+                //Nord-Süd-Verbindung
+            if ((currentRoxel.getPositionX() % streetOnElem) == 0) {
                 car.setDirection(Direction.SOUTH);
-            //West-Ost-Verbindung
-            } else if ((currentRoxel.getPositionY()%streetOnElem)==0){
+                //West-Ost-Verbindung
+            } else if ((currentRoxel.getPositionY() % streetOnElem) == 0) {
                 car.setDirection(Direction.EAST);
             }
             result.put(currentRoxel, car);
         }
+        return result;
+    }
+
+    private RoxelTuple getNonCrossRoadRoxel(List<RoxelTuple> freeRoxels, Random rand){
+        RoxelTuple result;
+        do {
+            result = freeRoxels.remove(rand.nextInt(freeRoxels.size()));
+        } while (!result.isCrossroad());
         return result;
     }
 }
