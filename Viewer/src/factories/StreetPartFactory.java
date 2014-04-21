@@ -34,12 +34,13 @@ public class StreetPartFactory {
     private List<StreetPart> createStreetParts(List<RoxelTuple> roxels) {
         List<StreetPart> result = new LinkedList<>();
         for(RoxelTuple roxel:roxels) {
-            if(roxel.getDirection() == Direction.EAST) {
-                result.add(new StreetPart(new Location(roxel.getPositionX(), roxel.getPositionY()), "/../media/street-east.png"));
-            } else if(roxel.getDirection() == Direction.SOUTH) {
-                result.add(new StreetPart(new Location(roxel.getPositionX(), roxel.getPositionY()), "/../media/street-south.png"));
+            Direction currentDirection = roxel.getDirection();
+            if(currentDirection == Direction.EAST || currentDirection == Direction.WEST) {
+                result.add(new StreetPart(roxel.getId(), new Location(roxel.getPositionX(), roxel.getPositionY()),roxel.isCrossroad(), "/../media/street-east.png"));
+            } else if(currentDirection == Direction.SOUTH || currentDirection == Direction.NORTH) {
+                result.add(new StreetPart(roxel.getId(), new Location(roxel.getPositionX(), roxel.getPositionY()),roxel.isCrossroad(), "/../media/street-south.png"));
             } else if(roxel.isCrossroad()) {
-                result.add(new StreetPart(new Location(roxel.getPositionX(), roxel.getPositionY()), "/../media/street-kreutz.png"));
+                result.add(new StreetPart(roxel.getId(), new Location(roxel.getPositionX(), roxel.getPositionY()), roxel.isCrossroad(),"/../media/street-kreutz.png"));
             }
         }
         return result;

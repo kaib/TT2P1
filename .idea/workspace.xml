@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b174f0c-2e51-48be-a727-34dc40237c4a" name="Default" comment="Autos fahren. Yeah! :)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carEast.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carEast2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carNorth.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carNorth2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carSouth.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carSouth2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carWest.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Viewer/src/media/carWest2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CommonDataTypes/src/tuples/StreetPartUpdateTuple.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CommonDataTypes/src/others/CarLocation.java" afterPath="$PROJECT_DIR$/CommonDataTypes/src/others/MapLocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CommonDataTypes/src/others/CarDriver.java" afterPath="$PROJECT_DIR$/CommonDataTypes/src/others/CarDriver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CarSimulation/src/simulation/CarListener.java" afterPath="$PROJECT_DIR$/CarSimulation/src/simulation/CarListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CommonDataTypes/src/tuples/CarPositionUpdateTuple.java" afterPath="$PROJECT_DIR$/CommonDataTypes/src/tuples/CarPositionUpdateTuple.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Initializer/src/configurator/factories/CarPositionUpdateTupleFactory.java" afterPath="$PROJECT_DIR$/Initializer/src/configurator/factories/CarPositionUpdateTupleFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Initializer/src/configurator/Initializer.java" afterPath="$PROJECT_DIR$/Initializer/src/configurator/Initializer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Viewer/src/main/Karte.java" afterPath="$PROJECT_DIR$/Viewer/src/main/Karte.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Initializer/src/configurator/Starter.java" afterPath="$PROJECT_DIR$/Initializer/src/configurator/Starter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Viewer/src/main/StreetPart.java" afterPath="$PROJECT_DIR$/Viewer/src/main/StreetPart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java" afterPath="$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TT2P1.iws" />
@@ -73,24 +76,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RoxelTupleFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/factories/RoxelTupleFactory.java">
+      <file leaf-file-name="Karte.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Viewer/src/main/Karte.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1088">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.82460135" vertical-offset="1510" max-vertical-offset="2646">
+              <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Direction.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/Direction.java">
+      <file leaf-file-name="Random.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/util/Random.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41463414" vertical-offset="0" max-vertical-offset="369">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="4640" max-vertical-offset="9900">
+              <caret line="299" column="0" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Initializer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Initializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1911" max-vertical-offset="2430">
+              <caret line="141" column="49" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Starter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Starter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="954">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,20 +119,28 @@
       <file leaf-file-name="StreetPartFactory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1224">
-              <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="864">
+              <caret line="15" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Karte.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Viewer/src/main/Karte.java">
+      <file leaf-file-name="Car.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Viewer/src/main/Car.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1666">
-              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1188">
+              <caret line="11" column="32" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StreetPart.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Viewer/src/main/StreetPart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1026">
+              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -120,30 +149,8 @@
       <file leaf-file-name="RoxelTuple.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/RoxelTuple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1394">
+            <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="2052">
               <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Initializer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Initializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1102" max-vertical-offset="1972">
-              <caret line="108" column="125" selection-start-line="108" selection-start-column="125" selection-end-line="108" selection-end-column="125" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigurationTupel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/config/ConfigurationTupel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1666">
-              <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -152,28 +159,18 @@
       <file leaf-file-name="CarPositionUpdateTuple.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/CarPositionUpdateTuple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="901">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="1368">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NoCarTuple.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/NoCarTuple.java">
+      <file leaf-file-name="StreetPartUpdateTuple.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/StreetPartUpdateTuple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RealCarTuple.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/RealCarTuple.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1368">
+              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -195,10 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/config/IsConfigured.java" />
-        <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/config/ConfigStatus.java" />
-        <option value="$PROJECT_DIR$/CommonDataTypes/src/interfaces/Configuration.java" />
-        <option value="$PROJECT_DIR$/CarSimulation/src/configurator/Configurator.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/CarTupel.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/config/ConfigStatusTupel.java" />
         <option value="$PROJECT_DIR$/Initializer/src/configurator/IdGenerator.java" />
@@ -215,7 +208,6 @@
         <option value="$PROJECT_DIR$/CommonDataTypes/src/others/IdGenerator.java" />
         <option value="$PROJECT_DIR$/CarSimulation/src/simulation/CarPool.java" />
         <option value="$PROJECT_DIR$/Viewer/src/ViewObjectsCreator.java" />
-        <option value="$PROJECT_DIR$/CommonDataTypes/src/others/CarLocation.java" />
         <option value="$PROJECT_DIR$/Viewer/src/CarUpdateService.java" />
         <option value="$PROJECT_DIR$/Viewer/src/StreetPartFactory.java" />
         <option value="$PROJECT_DIR$/Viewer/src/Car.java" />
@@ -223,7 +215,6 @@
         <option value="$PROJECT_DIR$/Viewer/src/readme.txt" />
         <option value="$PROJECT_DIR$/Viewer/src/StreetPart.java" />
         <option value="$PROJECT_DIR$/Viewer/src/main/StreetPartSouth.java" />
-        <option value="$PROJECT_DIR$/Viewer/src/main/StreetPart.java" />
         <option value="$PROJECT_DIR$/Initializer/src/configurator/factories/CarPositionUpdateTupleFactory.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/others/GlobalConstances.java" />
         <option value="$PROJECT_DIR$/Initializer/src/configurator/factories/CarTupleFactory.java" />
@@ -233,27 +224,32 @@
         <option value="$PROJECT_DIR$/Driver/src/driver/Starter.java" />
         <option value="$PROJECT_DIR$/Driver/src/driver/ExternelDriver.java" />
         <option value="$PROJECT_DIR$/Viewer/src/main/Car.java" />
-        <option value="$PROJECT_DIR$/Initializer/src/configurator/Starter.java" />
         <option value="$PROJECT_DIR$/CarSimulation/src/simulation/CarWorker.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/others/RoxelInfo.java" />
-        <option value="$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java" />
         <option value="$PROJECT_DIR$/Initializer/src/configurator/factories/RoxelTupleFactory.java" />
-        <option value="$PROJECT_DIR$/Viewer/src/main/Karte.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/config/ConfigurationTupel.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/CarPositionUpdateTuple.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/RealCarTuple.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/NoCarTuple.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/RoxelTuple.java" />
-        <option value="$PROJECT_DIR$/Initializer/src/configurator/Initializer.java" />
         <option value="$PROJECT_DIR$/CommonDataTypes/src/others/Direction.java" />
+        <option value="$PROJECT_DIR$/CarSimulation/src/simulation/CarListener.java" />
+        <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/RoxelCrossroadUpdateTuple.java" />
+        <option value="$PROJECT_DIR$/CommonDataTypes/src/others/CarLocation.java" />
+        <option value="$PROJECT_DIR$/CommonDataTypes/src/others/MapLocation.java" />
+        <option value="$PROJECT_DIR$/CommonDataTypes/src/tuples/StreetPartUpdateTuple.java" />
+        <option value="$PROJECT_DIR$/Viewer/src/main/StreetPart.java" />
+        <option value="$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java" />
+        <option value="$PROJECT_DIR$/Initializer/src/configurator/Initializer.java" />
+        <option value="$PROJECT_DIR$/Initializer/src/configurator/Starter.java" />
+        <option value="$PROJECT_DIR$/Viewer/src/main/Karte.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="-2" />
+    <option name="width" value="1262" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -300,6 +296,16 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TT2P1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -329,6 +335,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TT2P1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Viewer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -548,16 +572,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TT2P1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -597,6 +611,9 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tuples" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="interfaces" />
       <recent name="tuples" />
@@ -626,20 +643,44 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <module name="" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ErlangApplicationRunConfiguration" factoryName="Erlang Application">
+      <module name="" />
+      <option name="erlFlags" value="" />
+      <option name="moduleAndFunction" value="" />
+      <option name="name" value="Erlang" />
+      <option name="params" value="" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RebarEunitRunConfigurationType" factoryName="Erlang Rebar Eunit">
+      <module name="" />
+      <option name="command" value="eunit" />
+      <option name="name" value="Erlang Rebar Eunit" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <option name="skipDependencies" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -650,20 +691,20 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -694,20 +735,17 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="XSLT" factoryName="XSLT">
-      <option name="myOutputFile" />
-      <option name="myOpenOutputFile" value="false" />
-      <option name="myOpenInBrowser" value="false" />
-      <option name="mySmartErrorHandling" value="true" />
-      <option name="myRunnerPort" value="34873" />
-      <option name="myVmArguments" />
-      <option name="myWorkingDirectory" />
-      <option name="myModule" />
-      <option name="myJdk" />
-      <parameters />
-      <OutputType value="CONSOLE" save-to-file="false" />
-      <FileType name="XML" />
-      <JdkChoice value="FROM_MODULE" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -731,41 +769,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -787,37 +790,19 @@
       <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+    <configuration default="true" type="ErlangUnitRunConfigurationType" factoryName="Erlang Eunit">
       <module name="" />
-      <envs />
+      <option name="name" value="Erlang" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <option name="functionNames">
+        <set />
+      </option>
+      <option name="kind" value="MODULE" />
+      <option name="moduleNames">
+        <set />
+      </option>
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -833,6 +818,19 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -973,7 +971,15 @@
       <created>1396969389507</created>
       <updated>1396969389507</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Kreuzung-Grafiken für Ampeln hinzugefügt">
+      <created>1397916831235</created>
+      <updated>1397916831235</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Autos werden beim initializieren nicht auf Kreuzungen platziert.">
+      <created>1397917479070</created>
+      <updated>1397917479070</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1000,35 +1006,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-2" y="0" width="1262" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256579" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39692983" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39692983" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32785088" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3207547" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31907895" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24932493" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14348462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33962265" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35667217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33881578" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267544" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1053,11 +1060,16 @@
     <MESSAGE value="Korrektur Groß-/Kleinschreibung in Dateinamen - für mich als Linux-Benutzer durchaus relevant ;)" />
     <MESSAGE value="Changed Car-Background to Transparent." />
     <MESSAGE value="System.out.println(...) durch Logging ersetzt." />
-    <option name="LAST_COMMIT_MESSAGE" value="System.out.println(...) durch Logging ersetzt." />
+    <MESSAGE value="Kreuzung-Grafiken für Ampeln hinzugefügt" />
+    <MESSAGE value="Autos werden beim initializieren nicht auf Kreuzungen platziert." />
+    <option name="LAST_COMMIT_MESSAGE" value="Autos werden beim initializieren nicht auf Kreuzungen platziert." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="35" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="47" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1067,38 +1079,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Starter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="901">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="238">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/factories/RoxelTupleFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="756">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/IdGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="342">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Starter.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="828">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,13 +1203,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/CarLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="510">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Viewer/src/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
@@ -1259,13 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/factories/CarPositionUpdateTupleFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="46" max-vertical-offset="576">
-          <caret line="22" column="73" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/GlobalConstances.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
@@ -1291,7 +1259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1641" max-vertical-offset="2664">
           <caret line="112" column="10" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,7 +1266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="697">
           <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,23 +1273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="1458">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Viewer/src/main/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1292">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Starter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="954">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,7 +1280,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1339,41 +1287,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="1360">
           <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Viewer/src/main/StreetPart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52538073" vertical-offset="48" max-vertical-offset="442">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="830" max-vertical-offset="1224">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Viewer/src/main/Karte.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1666">
-          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/CarPositionUpdateTuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="901">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1381,7 +1294,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1389,25 +1301,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
           <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/RoxelTuple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1394">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Initializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1102" max-vertical-offset="1972">
-          <caret line="108" column="125" selection-start-line="108" selection-start-column="125" selection-end-line="108" selection-end-column="125" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,6 +1308,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1666">
           <caret line="37" column="14" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/JGameGrid.jar!/ch/aplu/jgamegrid/Location.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1754386" vertical-offset="0" max-vertical-offset="1404">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CarSimulation/src/simulation/CarListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39201453" vertical-offset="0" max-vertical-offset="551">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonDataTypes/CommonDataTypes.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/MapLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1427,13 +1355,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/others/Direction.java">
+    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/factories/CarPositionUpdateTupleFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41463414" vertical-offset="0" max-vertical-offset="369">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
+          <caret line="22" column="73" selection-start-line="22" selection-start-column="73" selection-end-line="22" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/CarPositionUpdateTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="297" max-vertical-offset="990">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/RoxelTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1394">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Viewer/src/factories/StreetPartFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="864">
+          <caret line="15" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommonDataTypes/src/tuples/StreetPartUpdateTuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="990">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/util/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4640" max-vertical-offset="9900">
+          <caret line="299" column="0" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Initializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1911" max-vertical-offset="2430">
+          <caret line="141" column="49" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Initializer/src/configurator/Starter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="954">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Viewer/src/main/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="1188">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Viewer/src/main/StreetPart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="1026">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Viewer/src/main/Karte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82460135" vertical-offset="1510" max-vertical-offset="2646">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -9,23 +9,23 @@ import others.Direction;
  * Created by Sebastian on 05.04.2014.
  */
 @SpaceClass
-public class CarPositionUpdateTuple {
+public class StreetPartUpdateTuple {
 
     private Long logicalTimeStamp;
     private String id;
     private MapLocation location;
-    private Integer carId;
+    private Integer roxelId;
     private Direction direction;
 
 
-    public CarPositionUpdateTuple(MapLocation mapLocation, int carId, long logicalTimeStamp, Direction direction) {
-        this.carId = carId;
+    public StreetPartUpdateTuple(MapLocation mapLocation, int roxelId, long logicalTimeStamp, Direction direction) {
+        this.roxelId = roxelId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;
         this.direction = direction;
     }
 
-    public CarPositionUpdateTuple() {  }
+    public StreetPartUpdateTuple() {  }
 
     @SpaceId(autoGenerate = true)
     public String getId() {
@@ -52,12 +52,12 @@ public class CarPositionUpdateTuple {
         this.location = location;
     }
 
-    public Integer getCarId() {
-        return carId;
+    public Integer getRoxelId() {
+        return roxelId;
     }
 
-    public void setCarId(Integer carId) {
-        this.carId = carId;
+    public void setRoxelId(Integer roxelId) {
+        this.roxelId = roxelId;
     }
 
     public Direction getDirection() {

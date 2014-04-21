@@ -6,8 +6,9 @@ import ch.aplu.jgamegrid.Location;
 import connector.GigaSpaceConnector;
 import factories.StreetPartFactory;
 import org.openspaces.core.GigaSpace;
-import others.CarLocation;
+import others.MapLocation;
 import tuples.CarPositionUpdateTuple;
+import tuples.StreetPartUpdateTuple;
 import tuples.config.ConfigurationTupel;
 
 import java.util.HashMap;
@@ -26,6 +27,7 @@ public class Karte
     private StreetPartFactory streetPartFactory;
     private GameGrid gameGrid;
     private Map<Integer,Car> carActors = new HashMap<>();
+    private Map<Integer, StreetPart> streetPartActors = new HashMap<>();
 
     public Karte(){
         this.gigaSpace = GigaSpaceConnector.getGigaSpace();
@@ -55,11 +57,46 @@ public class Karte
         return result;
     }
 
+
+    private List<StreetPart> getStreetPartUpdates(){
+        List<StreetPart> result = new LinkedList<>();
+        StreetPartUpdateTuple[] streetPartsUpdates;
+        streetPartsUpdates = gigaSpace.readMultiple(new StreetPartUpdateTuple());
+
+        for(StreetPartUpdateTuple updateTuple : streetPartsUpdates) {
+            log.info(String.format("Changing Roxel %s at Position %d|%d to %s", updateTuple.getId(), updateTuple.getLocation().getX(), updateTuple.getLocation().getY(), updateTuple.getDirection()));
+            String image = "/../media/street-kreutz.png";
+            switch (updateTuple.getDirection()){
+                case NORTH:
+                case SOUTH:
+                    image = "/../media/street-kreutz_South.png";
+                    break;
+                case EAST:
+                case WEST:
+                    image = "/../media/street-kreutz_EAST.png";
+                    break;
+                case TODECIDE:
+                    image = "/../media/street-kreutz_ToDecide.png";
+                    break;
+                default:
+                    image = "/../media/street-kreutz.png";
+            }
+            result.add(new StreetPart(updateTuple.getRoxelId(),new Location(updateTuple.getLocation().getX(),updateTuple.getLocation().getY()), true, image));
+        }
+        return result;
+    }
+
     public void doStep(){
-       List<Car> actCarActors = getCarUpdates();
-        for(Car car : actCarActors) {
+        List<Car> actCarActors = getCarUpdates();
+        for (Car car : actCarActors) {
             carActors.put(car.getId(), car);
         }
+
+        List<StreetPart> actStretPartActors = getStreetPartUpdates();
+        for (StreetPart streetPart : actStretPartActors){
+            streetPartActors.put(streetPart.getId(),streetPart);
+        }
+
         updateActors();
         /*gameGrid.removeActors(main.Car.class);
         for(main.Car car : carActors.values()) {
@@ -69,6 +106,19 @@ public class Karte
     }
 
     private void updateActors(){
+//        List<Actor> currentKarteStreetPartActors = gameGrid.getActors(StreetPart.class);
+//        List<Integer> knownStreetPartActors = new LinkedList<>();
+//
+//
+//
+//        //update known street Part actors
+//        for(Actor actor : currentKarteStreetPartActors) {
+//            StreetPart streetPart = (StreetPart) actor;
+//            gameGrid.removeActorsAt(actor.getLocation(),StreetPart.class);
+//            gameGrid.addActor(streetPart, actor.getLocation());
+//        }
+
+
         List<Actor> currentKarteActors = gameGrid.getActors(Car.class);
         List<Integer> knownCarActors = new LinkedList<>();
 
@@ -88,8 +138,8 @@ public class Karte
         }
     }
 
-    private Location mapLocations(CarLocation carLocation) {
-        return new Location(carLocation.getX(),carLocation.getY());
+    private Location mapLocations(MapLocation mapLocation) {
+        return new Location(mapLocation.getX(), mapLocation.getY());
     }
 
     public static void main(String[] args)

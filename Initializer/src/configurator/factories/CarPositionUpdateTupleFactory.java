@@ -1,7 +1,7 @@
 package configurator.factories;
 
 import interfaces.CarTuple;
-import others.CarLocation;
+import others.MapLocation;
 import tuples.CarPositionUpdateTuple;
 import tuples.RoxelTuple;
 
@@ -28,6 +28,6 @@ public class CarPositionUpdateTupleFactory {
     }
 
     public CarPositionUpdateTuple createCarPostionUpdateTuple(RoxelTuple roxel, CarTuple car) {
-        return new CarPositionUpdateTuple(new CarLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCarId(),0L, car.getDirection());
+        return new CarPositionUpdateTuple(new MapLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCarId(),0L, car.getDirection());
     }
 }

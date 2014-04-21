@@ -147,10 +147,19 @@ public class Initializer {
     }
 
     private RoxelTuple getNonCrossRoadRoxel(List<RoxelTuple> freeRoxels, Random rand){
-        RoxelTuple result;
-        do {
-            result = freeRoxels.remove(rand.nextInt(freeRoxels.size()));
-        } while (!result.isCrossroad());
+        RoxelTuple result = null;
+        boolean foundNonCrossRoadRoxel = false;
+
+        while (!foundNonCrossRoadRoxel) {
+            if (!freeRoxels.isEmpty()) {
+                result = freeRoxels.remove(rand.nextInt(freeRoxels.size()));
+                if (!result.isCrossroad()){
+                    foundNonCrossRoadRoxel = true;
+                }
+            } else {
+                break;
+            }
+        }
         return result;
     }
 }

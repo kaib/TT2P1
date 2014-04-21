@@ -128,10 +128,10 @@ public class CarDriver {
     private void releaseRoxel(RoxelTuple from, RoxelTuple to){
         RoxelTuple[] updateRoxels = {from,to};
         gigaSpace.writeMultiple(updateRoxels);
-        updateLocation(new CarLocation(to.getPositionX(), to.getPositionY()));
+        updateLocation(new MapLocation(to.getPositionX(), to.getPositionY()));
     }
 
-    private void updateLocation(CarLocation location) {
+    private void updateLocation(MapLocation location) {
         SQLQuery<CarPositionUpdateTuple> idQuery = new SQLQuery<>(CarPositionUpdateTuple.class,"carId = ?");
         idQuery.setParameter(1,car.getId());
         gigaSpace.change(idQuery, new ChangeSet().increment("logicalTimeStamp", 1L)

@@ -5,11 +5,11 @@ import java.io.Serializable;
 /**
  * Created by Sebastian on 05.04.2014.
  */
-public class CarLocation implements Serializable {
+public class MapLocation implements Serializable {
     private Integer x;
     private Integer y;
 
-    public CarLocation(int x, int y) {
+    public MapLocation(int x, int y) {
         this.x = x;
         this.y = y;
     }
