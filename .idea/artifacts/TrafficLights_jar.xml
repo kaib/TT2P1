@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="TrafficLights:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrafficLights_jar</output-path>
+    <root id="root">
+      <element id="archive" name="TrafficLights.jar">
+        <element id="module-output" name="TrafficLights" />
+        <element id="module-output" name="CommonDataTypes" />
+        <element id="module-output" name="GigaSpaceConnector" />
+      </element>
+      <element id="library" level="project" name="GigaSpaces" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/TrafficLights/src/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

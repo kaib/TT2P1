@@ -4,6 +4,7 @@ package starter;
 import connector.GigaSpaceConnector;
 import org.openspaces.core.GigaSpace;
 import simulation.CarPool;
+import simulation.LocalTrafficLight;
 import tuples.config.ConfigurationTupel;
 
 import static others.GlobalConstances.NO_TIMEOUT;
@@ -27,6 +28,9 @@ public class Starter {
 
         //Carpools starten alle CarThreads
         carPool.startAllCars();
+
+        LocalTrafficLight tl = new LocalTrafficLight();
+//        tl.start();
 
         System.out.println("End");
     }

@@ -2,6 +2,7 @@ package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import others.MapLocation;
 import others.Direction;
 
@@ -27,6 +28,7 @@ public class CarPositionUpdateTuple {
 
     public CarPositionUpdateTuple() {  }
 
+    @SpaceRouting
     @SpaceId(autoGenerate = true)
     public String getId() {
         return id;

@@ -2,6 +2,7 @@ package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import interfaces.CarTuple;
 import others.Direction;
 
@@ -33,6 +34,8 @@ public class RealCarTuple implements CarTuple {
         this.direction = direction;
     }
 
+
+    @SpaceRouting
     @Override
     @SpaceId
     public Integer getId() {

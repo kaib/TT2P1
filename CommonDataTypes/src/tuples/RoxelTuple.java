@@ -2,6 +2,7 @@ package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import others.Direction;
 
 import java.io.Serializable;
@@ -69,6 +70,7 @@ public class RoxelTuple implements Serializable{
         this.isCrossroad = isCrossroad;
     }
 
+    @SpaceRouting
     @SpaceId
     public Integer getId() {
         return id;

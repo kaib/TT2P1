@@ -3,6 +3,7 @@ package tuples.config;
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import com.gigaspaces.metadata.index.SpaceIndexType;
 import tuples.RoxelTuple;
 
@@ -104,6 +105,7 @@ public class ConfigurationTupel {
         this.roxelSizeY = roxelSizeY;
     }
 
+    @SpaceRouting
     @SpaceIndex(type= SpaceIndexType.BASIC)
     @SpaceId
     public Integer getId() {

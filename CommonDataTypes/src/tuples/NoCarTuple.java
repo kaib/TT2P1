@@ -3,6 +3,7 @@ package tuples;
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import interfaces.CarTuple;
 import others.Direction;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -28,6 +29,7 @@ public class NoCarTuple implements CarTuple{
         throw new NotImplementedException();
     }
 
+    @SpaceRouting
     @SpaceIndex
     @SpaceId
     public Integer getId() {

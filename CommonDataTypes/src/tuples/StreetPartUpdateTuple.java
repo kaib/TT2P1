@@ -2,6 +2,7 @@ package tuples;
 
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
+import com.gigaspaces.annotation.pojo.SpaceRouting;
 import others.MapLocation;
 import others.Direction;
 
@@ -18,15 +19,20 @@ public class StreetPartUpdateTuple {
     private Direction direction;
 
 
-    public StreetPartUpdateTuple(MapLocation mapLocation, int roxelId, long logicalTimeStamp, Direction direction) {
+    private Boolean isCrossing;
+
+
+    public StreetPartUpdateTuple(MapLocation mapLocation, int roxelId, long logicalTimeStamp, Direction direction, boolean isCrossing) {
         this.roxelId = roxelId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;
         this.direction = direction;
+        this.isCrossing = isCrossing;
     }
 
     public StreetPartUpdateTuple() {  }
 
+    @SpaceRouting
     @SpaceId(autoGenerate = true)
     public String getId() {
         return id;
@@ -67,4 +73,13 @@ public class StreetPartUpdateTuple {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
+
+    public Boolean getIsCrossing() {
+        return isCrossing;
+    }
+
+    public void setIsCrossing(Boolean isCrossing) {
+        this.isCrossing = isCrossing;
+    }
+
 }
