@@ -4,10 +4,12 @@ import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceIndex;
 import others.Direction;
 
+import java.io.Serializable;
+
 /**
  * Created by tobi on 02.04.14.
  */
-public interface CarTuple {
+public interface CarTuple extends Serializable{
     Direction getDirection();
 
     void setDirection(Direction direction);

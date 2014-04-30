@@ -8,11 +8,13 @@ import interfaces.CarTuple;
 import others.Direction;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.io.Serializable;
+
 /**
  * Created by tobi on 31.03.14.
  */
 @SpaceClass
-public class NoCarTuple implements CarTuple{
+public class NoCarTuple implements CarTuple, Serializable{
 
     private Direction direction = Direction.TODECIDE;
     private Integer id = -1;

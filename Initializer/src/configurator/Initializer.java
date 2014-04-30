@@ -99,11 +99,8 @@ public class Initializer {
         List<CarTuple> cars = carTupleFactory.createCarTuples(numberOfCars);
         RoxelTupleFactory roxelTupleFactory = new RoxelTupleFactory();
         List<RoxelTuple> roxels = roxelTupleFactory.createRoxelTuples(blockSize, mapSizeX, mapSizeY);
-        Map<RoxelTuple, CarTuple> roxelCarMap = placeCars(cars, roxels);
-
-        List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxelCarMap);
-        cars.add(carTupleFactory.createNoCarTuple());
-        gigaspace.writeMultiple(cars.toArray());
+        List<RoxelTuple> roxelCarList = placeCars(cars, roxels);
+        List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxelCarList);
         gigaspace.writeMultiple(roxels.toArray());
         gigaspace.writeMultiple(carPostionUpdates.toArray());
         gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY, roxels));
@@ -117,31 +114,17 @@ public class Initializer {
      * @param cars
      * @param roxels
      */
-    private Map<RoxelTuple, CarTuple> placeCars(List<CarTuple> cars, List<RoxelTuple> roxels){
+    private List<RoxelTuple> placeCars(List<CarTuple> cars, List<RoxelTuple> roxels){
         List<RoxelTuple> freeRoxels = new ArrayList<>(roxels);
-        Map<RoxelTuple, CarTuple> result = new HashMap<RoxelTuple, CarTuple>();
+        List<RoxelTuple> result = new LinkedList<RoxelTuple>();
         int streetOnElem = blockSize+1;
         Random rand = new Random();
         for (CarTuple car : cars){
             RoxelTuple currentRoxel = getNonCrossRoadRoxel(freeRoxels, rand);
-            currentRoxel.setCarId(car.getId());
-            // Kreuzung
-//            if (((currentRoxel.getPositionX() % streetOnElem) == 0) && ((currentRoxel.getPositionY() % streetOnElem) == 0)) {
-//                if (rand.nextBoolean()) {
-//                    car.setDirection(Direction.SOUTH);
-//                } else {
-//                    car.setDirection(Direction.EAST);
-//                }
-//
-//            } else
-                //Nord-Süd-Verbindung
-            if ((currentRoxel.getPositionX() % streetOnElem) == 0) {
-                car.setDirection(Direction.SOUTH);
-                //West-Ost-Verbindung
-            } else if ((currentRoxel.getPositionY() % streetOnElem) == 0) {
-                car.setDirection(Direction.EAST);
-            }
-            result.put(currentRoxel, car);
+            //Auto soll in vorgegebene Richtung fahren
+            car.setDirection(currentRoxel.getDirection());
+            currentRoxel.setCar(car);
+            result.add(currentRoxel);
         }
         return result;
     }

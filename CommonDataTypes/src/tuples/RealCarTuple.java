@@ -6,13 +6,14 @@ import com.gigaspaces.annotation.pojo.SpaceRouting;
 import interfaces.CarTuple;
 import others.Direction;
 
+import java.io.Serializable;
 
 
 /**
  * Created by tobi on 31.03.14.
  */
 @SpaceClass
-public class RealCarTuple implements CarTuple {
+public class RealCarTuple implements CarTuple, Serializable {
 
     private Direction direction;
     private Integer id;
@@ -45,5 +46,13 @@ public class RealCarTuple implements CarTuple {
     @Override
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "RealCarTuple{" +
+                "direction=" + direction +
+                ", id=" + id +
+                '}';
     }
 }

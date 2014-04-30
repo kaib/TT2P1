@@ -5,6 +5,7 @@ import com.j_spaces.core.client.SQLQuery;
 import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
 import tuples.CarPositionUpdateTuple;
+import tuples.NoCarTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
 
@@ -21,26 +22,23 @@ public class CarDriver {
     private static final Logger log = Logger.getLogger( CarDriver.class.getName() );
 
     private GigaSpace gigaSpace;
-
-
-
-    private CarTuple car;
+    private RoxelTuple currentPosition;
     private ConfigurationTupel configurationTupel;
     public CarDriver(GigaSpace gigaSpace, ConfigurationTupel configurationTupel) {
         this.gigaSpace = gigaSpace;
         this.configurationTupel = configurationTupel;
     }
 
-    public CarTuple getCar() {
-        return car;
+    public RoxelTuple getCurrentPosition() {
+        return currentPosition;
     }
 
-    public void setCar(CarTuple car) {
-        this.car = car;
+    public void setCurrentPosition(RoxelTuple currentPosition) {
+        this.currentPosition = currentPosition;
     }
 
     public void move() {
-        move(car.getDirection());
+        move(currentPosition.getCar().getDirection());
     }
 
     private void move(Direction direction) {
@@ -57,92 +55,89 @@ public class CarDriver {
             case NORTH:
                 driveNorth();
                 break;
+            case TODECIDE:
+                doNotDrive();
+                break;
         }
+    }
+    private void doNotDrive(){
+        System.out.println("Cannot Drive with Empty Car Tuple?!?!");
+
     }
 
     private void driveNorth() {
-        RoxelTuple current = takeCurrentRoxel();
-        int currentY = current.getPositionY();
+        int currentY = currentPosition.getPositionY();
         int nextY = currentY != 0 ? currentY-1 : configurationTupel.getMapSizeY()-1;
-        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,nextY,current.getPositionX(), NORTH);
+        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,nextY,currentPosition.getPositionX(), NORTH);
         RoxelTuple next = takeNextRoxel(sql);
-        changePosition(current,next);
-        releaseRoxel(current,next);
+        changePosition(currentPosition,next);
+        releaseRoxel(currentPosition,next);
     }
 
     private void driveSouth() {
-        RoxelTuple current = takeCurrentRoxel();
-        int currentY = current.getPositionY();
+        int currentY = currentPosition.getPositionY();
         int nextY = currentY != configurationTupel.getMapSizeY()-1 ? currentY+1 : 0;
-        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,nextY,current.getPositionX(), SOUTH);
+        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,nextY,currentPosition.getPositionX(), SOUTH);
         RoxelTuple next = takeNextRoxel(sql);
-        changePosition(current,next);
+        changePosition(currentPosition,next);
 
-        releaseRoxel(current,next);
+        releaseRoxel(currentPosition,next);
     }
 
     private void driveWest() {
-        RoxelTuple current = takeCurrentRoxel();
-        int currentX = current.getPositionX();
+     
+        int currentX = currentPosition.getPositionX();
         int nextX = currentX != 0 ? currentX-1 : configurationTupel.getMapSizeY()-1;
-        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,current.getPositionY(),nextX, WEST);
+        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,currentPosition.getPositionY(),nextX, WEST);
         RoxelTuple next = takeNextRoxel(sql);
-        changePosition(current,next);
-        releaseRoxel(current,next);
+        changePosition(currentPosition,next);
+        releaseRoxel(currentPosition,next);
     }
 
     private void driveEast() {
-        RoxelTuple current = takeCurrentRoxel();
-        int currentX = current.getPositionX();
+
+        int currentX = currentPosition.getPositionX();
         int nextX = currentX != configurationTupel.getMapSizeY()-1 ? currentX+1 : 0;
-        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,current.getPositionY(),nextX, EAST);
+        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id = ? AND positionY = ? AND positionX = ? AND direction = ?",-1,currentPosition.getPositionY(),nextX, EAST);
         RoxelTuple next = takeNextRoxel(sql);
-        changePosition(current,next);
-        releaseRoxel(current,next);
-    }
-
-
-
-
-
-
-    private RoxelTuple takeCurrentRoxel(){
-        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId=?",car.getId());
-        return gigaSpace.take(sql,NO_TIMEOUT);
-    }
-
-    public RoxelTuple readCurrentRoxel(){
-        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"carId=?",car.getId());
-        return gigaSpace.read(sql,NO_TIMEOUT);
+        changePosition(currentPosition,next);
+        releaseRoxel(currentPosition,next);
     }
 
     private RoxelTuple takeNextRoxel(SQLQuery<RoxelTuple> sql){
         return gigaSpace.take(sql,NO_TIMEOUT);
     }
 
-    private void changePosition(RoxelTuple from, RoxelTuple to){
-        from.setCarId(-1);
-        to.setCarId(car.getId());
-        log.info(String.format(String.format("CarDriver moved car %d from %d|%d to %d|%d", car.getId(), from.getPositionX(), from.getPositionY(), to.getPositionX(), to.getPositionY())));
+    private void changePosition(RoxelTuple from, RoxelTuple to) {
+        if (to.getDirection() == from.getCar().getDirection()) {
+            to.setCar(from.getCar());
+            from.setCar(new NoCarTuple());
+            log.info(String.format(String.format("CarDriver moved car %d from [%d,%d] to [%d,%d]", to.getCar().getId(), from.getPositionX(), from.getPositionY(), to.getPositionX(), to.getPositionY())));
+        }
     }
 
     private void releaseRoxel(RoxelTuple from, RoxelTuple to){
         if (from.isCrossroad()){
             from.setDirection(TODECIDE);
         }
-        RoxelTuple[] updateRoxels = {from,to};
-        gigaSpace.writeMultiple(updateRoxels);
+        //
+       // RoxelTuple[] updateRoxels = {from,to};
+       // gigaSpace.writeMultiple(updateRoxels);
+        gigaSpace.write(from);
+        this.setCurrentPosition(to);
         updateLocation(new MapLocation(to.getPositionX(), to.getPositionY()));
     }
 
     private void updateLocation(MapLocation location) {
         SQLQuery<CarPositionUpdateTuple> idQuery = new SQLQuery<>(CarPositionUpdateTuple.class,"carId = ?");
-        idQuery.setParameter(1,car.getId());
+        idQuery.setParameter(1,currentPosition.getCar().getId());
         gigaSpace.change(idQuery, new ChangeSet().increment("logicalTimeStamp", 1L)
                 .set("location", location));
     }
 
-    public void removeCar() {
-        setCar(null);
+    public void removeDriver() {
+
+        currentPosition = null;
+
     }
 }

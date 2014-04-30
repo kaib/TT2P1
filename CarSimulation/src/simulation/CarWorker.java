@@ -1,11 +1,13 @@
 package simulation;
 
+import com.j_spaces.core.client.SQLQuery;
 import connector.GigaSpaceConnector;
 import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
 import others.CarDriver;
 import others.IdGenerator;
 import tuples.RealCarTuple;
+import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
 
 import java.util.logging.Logger;
@@ -24,7 +26,7 @@ public class CarWorker extends Thread {
     private GigaSpace gigaSpace;
     private ConfigurationTupel configurationTupel;
     private int workerId;
-    private CarTuple car;
+    private RoxelTuple carRoxel;
     private CarDriver carDriver;
 
     public CarWorker() {
@@ -40,40 +42,45 @@ public class CarWorker extends Thread {
 
         log.info(String.format("CarWorker %d starts working", workerId));
 
-
         while (! isInterrupted()){
 
             //entnehme Auto aus dem TuplSpace
             takeCar();
 
-            //Bewege Auto
-            carDriver.move();
+                //Bewege Auto
+                carDriver.move();
 
-            // Warte X Millisekunden
-            try {
-                sleep(500);
-            } catch (InterruptedException e) {
+                // Warte X Millisekunden
+                try {
+                    sleep(1500);
+                } catch (InterruptedException e) {
 
+                }
+
+                //lege das Auto wieder in den TupleSpace
+                releaseCar();
             }
 
-            //lege das Auto wieder in den TupleSpace
-            releaseCar();
-        }
+
 
         log.info(String.format("CarWorker %d stopped working", workerId));
     }
 
     public void takeCar(){
-        car = gigaSpace.take(new RealCarTuple(), NO_TIMEOUT);
-        log.info(String.format("CarWorker %d took car %d", workerId, car.getId()));
-        carDriver.setCar(car);
+
+        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id != ?",-1);
+        carRoxel = gigaSpace.take(sql,NO_TIMEOUT);
+
+            log.info(String.format("CarWorker %d took car %d from [%d,%d]", workerId, carRoxel.getCar().getId(),carRoxel.getPositionX(),carRoxel.getPositionY()));
+            carDriver.setCurrentPosition(carRoxel);
     }
 
     public void releaseCar() {
-        gigaSpace.write(car);
-        log.info(String.format("CarWorker %d released car %d", workerId, car.getId()));
-        carDriver.removeCar();
-        car = null;
+        carRoxel = carDriver.getCurrentPosition();
+        gigaSpace.write(carRoxel);
+        log.info(String.format("CarWorker %d released car %d on [%d,%d]", workerId, carRoxel.getCar().getId(),carRoxel.getPositionX(),carRoxel.getPositionY()));
+        carDriver.removeDriver();
+        carRoxel = null;
     }
 
 

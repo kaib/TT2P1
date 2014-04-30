@@ -18,16 +18,16 @@ public class CarPositionUpdateTupleFactory {
 
     public CarPositionUpdateTupleFactory(){}
 
-    public List<CarPositionUpdateTuple> createCarPositionUpdateTuples(Map<RoxelTuple,CarTuple> roxelCarMap){
+    public List<CarPositionUpdateTuple> createCarPositionUpdateTuples(List<RoxelTuple> roxelCarList){
         List<CarPositionUpdateTuple> carPositionUpdateTupleList = new LinkedList<>();
-        for(Map.Entry<RoxelTuple,CarTuple> entry : roxelCarMap.entrySet()) {
-            System.out.println(entry.getKey());
-            carPositionUpdateTupleList.add(createCarPostionUpdateTuple(entry.getKey(), entry.getValue()));
+        for(RoxelTuple roxel: roxelCarList) {
+            System.out.println(roxel);
+            carPositionUpdateTupleList.add(createCarPostionUpdateTuple(roxel));
         }
         return carPositionUpdateTupleList;
     }
 
-    public CarPositionUpdateTuple createCarPostionUpdateTuple(RoxelTuple roxel, CarTuple car) {
-        return new CarPositionUpdateTuple(new MapLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCarId(),0L, car.getDirection());
+    public CarPositionUpdateTuple createCarPostionUpdateTuple(RoxelTuple roxel) {
+        return new CarPositionUpdateTuple(new MapLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCar().getId(),0L, roxel.getCar().getDirection());
     }
 }

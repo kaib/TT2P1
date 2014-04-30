@@ -2,6 +2,7 @@ package configurator.factories;
 
 import others.Direction;
 import others.IdGenerator;
+import tuples.NoCarTuple;
 import tuples.RoxelTuple;
 
 import java.util.LinkedList;
@@ -33,7 +34,7 @@ public class RoxelTupleFactory {
 
 
     public RoxelTuple createRoxelTuple(int positionX, int positionY, Direction direction, boolean isCrossing){
-        return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,-1, direction, isCrossing);
+        return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,new NoCarTuple(), direction, isCrossing);
     }
 
     /**

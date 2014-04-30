@@ -24,13 +24,14 @@ public class Starter {
         //... und erst dann gehts weiter.
 
         //CarPool mit X Threads erzeugen...
-        CarPool carPool = new CarPool(ct.getNumberOfCars()+1);
+       // CarPool carPool = new CarPool(ct.getNumberOfCars()+1);
+        CarPool carPool = new CarPool(5);
 
         //Carpools starten alle CarThreads
         carPool.startAllCars();
 
         LocalTrafficLight tl = new LocalTrafficLight();
-//        tl.start();
+        tl.start();
 
         System.out.println("End");
     }

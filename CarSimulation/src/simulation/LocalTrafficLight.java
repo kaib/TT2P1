@@ -37,6 +37,7 @@ public class LocalTrafficLight extends Thread {
         System.out.println(event);
         switchSignal(event);
         StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple( new MapLocation(event.getPositionX(), event.getPositionY()), event.getId(),  0L, event.getDirection(), true);
+
         gigaSpace.write(streetPartUpdateTuple);
         System.out.println(event);
         gigaSpace.write(event);

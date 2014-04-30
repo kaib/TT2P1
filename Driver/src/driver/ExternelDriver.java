@@ -1,9 +1,8 @@
 package driver;
 
-import interfaces.CarTuple;
+import com.j_spaces.core.client.SQLQuery;
 import org.openspaces.core.GigaSpace;
 import others.CarDriver;
-import tuples.RealCarTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
 
@@ -24,7 +23,7 @@ public class ExternelDriver {
     private GigaSpace gigaSpace;
     private ConfigurationTupel configurationTupel;
     private CarDriver carDriver;
-    private CarTuple car;
+    private RoxelTuple carRoxel;
 
     public ExternelDriver(GigaSpace gigaSpace) {
         this.gigaSpace = gigaSpace;
@@ -43,15 +42,15 @@ public class ExternelDriver {
 
         //entnehme Auto aus dem TuplSpace
         takeCar();
-        System.out.println("You hijacked the following car:");
-        RoxelTuple roxelTuple = carDriver.readCurrentRoxel();
-        System.out.println(String.format("Car %d, on Street %d|%d, driving in the direction %s!", car.getId(), roxelTuple.getPositionX(), roxelTuple.getPositionY(), car.getDirection()));
+        System.out.println("You hijacked the following carRoxel:");
+        RoxelTuple roxelTuple = carDriver.getCurrentPosition();
+        System.out.println(String.format("Car %d, on Street %d|%d, driving in the direction %s!", carRoxel.getId(), roxelTuple.getPositionX(), roxelTuple.getPositionY(), carRoxel.getDirection()));
 
         while (running){
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Please choose, what you wanna do!");
             System.out.println("[1]: Drive!");
-            System.out.println("[2]: Leave the car and run away!");
+            System.out.println("[2]: Leave the carRoxel and run away!");
             String zeile = null;
             try {
                 zeile = console.readLine();
@@ -76,14 +75,15 @@ public class ExternelDriver {
     }
 
     public void takeCar(){
-        car = gigaSpace.take(new RealCarTuple(), NO_TIMEOUT);
-        carDriver.setCar(car);
+        SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id != ?",-1);
+        carRoxel = gigaSpace.take(sql,NO_TIMEOUT);
+        carDriver.setCurrentPosition(carRoxel);
     }
 
     public void releaseCar() {
-        gigaSpace.write(car);
+        gigaSpace.write(carDriver.getCurrentPosition());
         log.info("You have left the car!");
-        carDriver.removeCar();
-        car = null;
+        carDriver.removeDriver();
+        carRoxel = null;
     }
 }

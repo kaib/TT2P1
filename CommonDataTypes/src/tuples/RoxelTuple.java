@@ -3,6 +3,7 @@ package tuples;
 import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceRouting;
+import interfaces.CarTuple;
 import others.Direction;
 
 import java.io.Serializable;
@@ -15,17 +16,17 @@ public class RoxelTuple implements Serializable{
     private Integer positionX;
     private Integer PositionY;
     private Integer id;
-    private Integer carId;
+    private CarTuple car;
     private Direction direction;
     private boolean isCrossroad;
 
     public RoxelTuple() {}
 
-    public RoxelTuple(Integer id, Integer positionX, Integer positionY, Integer carId, Direction direction, boolean isCrossroad) {
+    public RoxelTuple(Integer id, Integer positionX, Integer positionY, CarTuple car, Direction direction, boolean isCrossroad) {
         this.positionX = positionX;
         this.PositionY = positionY;
         this.id = id;
-        this.carId = carId;
+        this.car = car;
         this.direction = direction;
         this.isCrossroad = isCrossroad;
     }
@@ -38,12 +39,12 @@ public class RoxelTuple implements Serializable{
         this.direction = direction;
     }
 
-    public Integer getCarId() {
-        return carId;
+    public CarTuple getCar() {
+        return car;
     }
 
-    public void setCarId(Integer carId) {
-        this.carId = carId;
+    public void setCar(CarTuple car) {
+        this.car = car;
     }
 
     public Integer getPositionX() {
@@ -86,7 +87,7 @@ public class RoxelTuple implements Serializable{
                 "positionX=" + positionX +
                 ", PositionY=" + PositionY +
                 ", id=" + id +
-                ", carId=" + carId +
+                ", car=" + car +
                 ", Direction=" + direction +
                 '}';
     }
