@@ -8,6 +8,7 @@ import org.openspaces.events.EventTemplate;
 import org.openspaces.events.adapter.SpaceDataEvent;
 import org.openspaces.events.notify.Notify;
 import org.openspaces.events.notify.NotifyType;
+
 import others.MapLocation;
 import tuples.RoxelTuple;
 import tuples.StreetPartUpdateTuple;
@@ -21,6 +22,7 @@ import static others.Direction.*;
 @NotifyType(write = true, update = true)
 public class TrafficLight {
 
+
     private static Random rand = new Random();
     @GigaSpaceContext
     GigaSpace gigaSpace;
@@ -32,14 +34,22 @@ public class TrafficLight {
 
     @SpaceDataEvent
     public StreetPartUpdateTuple eventListener(RoxelTuple event){
+
         switchSignal(event);
+        StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple(new MapLocation(event.getPositionX(),event.getPositionY()),event.getId(),0l,event.getDirection(),event.getCrossroad());
+        if(streetPartUpdateTuple != null) {
+            streetPartUpdateTuple.setDirection(event.getDirection());
+        }
+
         gigaSpace.write(event);
-       return new StreetPartUpdateTuple( new MapLocation(event.getPositionX(), event.getPositionY()), event.getId(),  0L, event.getDirection(), true);
+
+       return streetPartUpdateTuple;
     }
 
     private void switchSignal(RoxelTuple roxelTuple){
         if (roxelTuple.getDirection().equals(TODECIDE)){
-            boolean south = true;
+            boolean south = rand.nextBoolean();
+
             if (south){
                 roxelTuple.setDirection(SOUTH);
             } else {

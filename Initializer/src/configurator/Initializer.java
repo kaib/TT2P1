@@ -5,8 +5,6 @@ import configurator.factories.CarTupleFactory;
 import configurator.factories.RoxelTupleFactory;
 import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
-import others.Direction;
-import others.IdGenerator;
 import tuples.CarPositionUpdateTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
@@ -102,13 +100,14 @@ public class Initializer {
         List<RoxelTuple> roxels = roxelTupleFactory.createRoxelTuples(blockSize, mapSizeX, mapSizeY);
         List<RoxelTuple> roxelCarList = placeCars(cars, roxels);
         List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxelCarList);
+
         for(RoxelTuple roxel:roxels) {
             System.out.println(roxel);
         }
         gigaspace.writeMultiple(roxels.toArray());
         gigaspace.writeMultiple(carPostionUpdates.toArray());
-        gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY, roxels));
 
+        gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY, roxels));
     }
 
 
@@ -116,13 +115,12 @@ public class Initializer {
 
     /**
      * Platziert alle Autos aus der Liste cars zufällig auf Roxel aus der Liste Roxels
-     * @param cars
-     * @param roxels
+     * @param cars asd
+     * @param roxels asd
      */
     private List<RoxelTuple> placeCars(List<CarTuple> cars, List<RoxelTuple> roxels){
         List<RoxelTuple> freeRoxels = new ArrayList<>(roxels);
-        List<RoxelTuple> result = new LinkedList<RoxelTuple>();
-        int streetOnElem = blockSize+1;
+        List<RoxelTuple> result = new LinkedList<>();
         Random rand = new Random();
         for (CarTuple car : cars){
             RoxelTuple currentRoxel = getNonCrossRoadRoxel(freeRoxels, rand);

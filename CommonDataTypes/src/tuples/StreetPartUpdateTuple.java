@@ -17,17 +17,18 @@ public class StreetPartUpdateTuple {
     private MapLocation location;
     private Integer roxelId;
     private Direction direction;
+    private Boolean crossroad;
 
 
-    private Boolean isCrossing;
 
 
-    public StreetPartUpdateTuple(MapLocation mapLocation, Integer roxelId, Long logicalTimeStamp, Direction direction, Boolean isCrossing) {
+    public StreetPartUpdateTuple(MapLocation mapLocation, Integer roxelId, Long logicalTimeStamp, Direction direction, Boolean crossroad) {
         this.roxelId = roxelId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;
         this.direction = direction;
-        this.isCrossing = isCrossing;
+        this.crossroad = crossroad;
+
     }
 
     public StreetPartUpdateTuple() {  }
@@ -74,12 +75,40 @@ public class StreetPartUpdateTuple {
         this.direction = direction;
     }
 
-    public Boolean getIsCrossing() {
-        return isCrossing;
+    public Boolean getCrossroad() {
+        return crossroad;
     }
 
-    public void setIsCrossing(Boolean isCrossing) {
-        this.isCrossing = isCrossing;
+    public void setCrossroad(Boolean crossroad) {
+        this.crossroad = crossroad;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StreetPartUpdateTuple)) return false;
+
+        StreetPartUpdateTuple that = (StreetPartUpdateTuple) o;
+
+        if (crossroad != null ? !crossroad.equals(that.crossroad) : that.crossroad != null) return false;
+        if (direction != that.direction) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (location != null ? !location.equals(that.location) : that.location != null) return false;
+        if (logicalTimeStamp != null ? !logicalTimeStamp.equals(that.logicalTimeStamp) : that.logicalTimeStamp != null)
+            return false;
+        if (roxelId != null ? !roxelId.equals(that.roxelId) : that.roxelId != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = logicalTimeStamp != null ? logicalTimeStamp.hashCode() : 0;
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (roxelId != null ? roxelId.hashCode() : 0);
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        result = 31 * result + (crossroad != null ? crossroad.hashCode() : 0);
+        return result;
+    }
 }

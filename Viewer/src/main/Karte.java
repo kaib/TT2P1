@@ -43,8 +43,6 @@ public class Karte
         for(StreetPart streetPart : streetPartFactory.getStreetPartList()) {
             gameGrid.addActor(streetPart, streetPart.getLocation());
         }
-
-        System.out.println("test");
         gameGrid.show();
     }
 
@@ -65,8 +63,8 @@ public class Karte
         List<StreetPart> result = new LinkedList<>();
         StreetPartUpdateTuple[] streetPartsUpdates;
 
-        SQLQuery<StreetPartUpdateTuple> sql = new SQLQuery<>(StreetPartUpdateTuple.class,"isCrossing = ?", Boolean.TRUE);
-        streetPartsUpdates = gigaSpace.readMultiple(sql);
+        SQLQuery<StreetPartUpdateTuple> sql = new SQLQuery<>(StreetPartUpdateTuple.class,"crossroad = ?", Boolean.TRUE);
+        streetPartsUpdates = gigaSpace.takeMultiple(sql);
 
         for(StreetPartUpdateTuple updateTuple : streetPartsUpdates) {
             log.info(String.format("Changing Roxel %s at Position %d|%d to %s", updateTuple.getId(), updateTuple.getLocation().getX(), updateTuple.getLocation().getY(), updateTuple.getDirection()));
@@ -92,8 +90,8 @@ public class Karte
     }
 
     public void doStep(){
-        List<StreetPart> actStretPartActors = getStreetPartUpdates();
-        for (StreetPart streetPart : actStretPartActors){
+        List<StreetPart> streetPartActorsList = getStreetPartUpdates();
+        for (StreetPart streetPart : streetPartActorsList){
             if (streetPart.isCrossRoad()) {
                 streetPartActors.put(streetPart.getId(), streetPart);
             }
@@ -113,19 +111,14 @@ public class Karte
     }
 
     private void updateActors(){
-        List<Actor> currentKarteStreetPartActors = gameGrid.getActors(StreetPart.class);
-        List<Integer> knownStreetPartActors = new LinkedList<>();
-
         //update known street Part actors
-        for(Actor actor : currentKarteStreetPartActors) {
-            StreetPart streetPart = (StreetPart) actor;
+        for(Map.Entry<Integer,StreetPart> entrySet : streetPartActors.entrySet()) {
+               StreetPart streetPart = entrySet.getValue();
             if (streetPart.isCrossRoad()) {
-                gameGrid.removeActorsAt(actor.getLocation(), StreetPart.class);
-                gameGrid.addActor(streetPart, actor.getLocation());
+                gameGrid.removeActorsAt(streetPart.getLocation(),StreetPart.class);
+                gameGrid.addActor(streetPart, streetPart.getLocation());
             }
         }
-
-
         List<Actor> currentKarteActors = gameGrid.getActors(Car.class);
         List<Integer> knownCarActors = new LinkedList<>();
 
