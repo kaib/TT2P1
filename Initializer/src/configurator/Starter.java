@@ -44,7 +44,7 @@ public class Starter {
         config.setMapSizeY(20);
         config.setRoxelSizeX(1);
         config.setRoxelSizeY(1);
-        config.setNumberOfCars(5);
+        config.setNumberOfCars(20);
         config.runConfigurationIfNecessary();
     }
 }

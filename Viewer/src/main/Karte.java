@@ -64,10 +64,10 @@ public class Karte
         StreetPartUpdateTuple[] streetPartsUpdates;
 
         SQLQuery<StreetPartUpdateTuple> sql = new SQLQuery<>(StreetPartUpdateTuple.class,"crossroad = ?", Boolean.TRUE);
-        streetPartsUpdates = gigaSpace.takeMultiple(sql);
+        streetPartsUpdates = gigaSpace.readMultiple(sql);
 
         for(StreetPartUpdateTuple updateTuple : streetPartsUpdates) {
-            log.info(String.format("Changing Roxel %s at Position %d|%d to %s", updateTuple.getId(), updateTuple.getLocation().getX(), updateTuple.getLocation().getY(), updateTuple.getDirection()));
+            log.info(String.format("Changing Roxel %s at Position %d|%d to %s", updateTuple.getRoxelId(), updateTuple.getLocation().getX(), updateTuple.getLocation().getY(), updateTuple.getDirection()));
             String image = "/../media/street-kreutz.png";
             switch (updateTuple.getDirection()){
                 case NORTH:

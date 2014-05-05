@@ -6,14 +6,16 @@ import com.gigaspaces.annotation.pojo.SpaceRouting;
 import others.MapLocation;
 import others.Direction;
 
+import java.io.Serializable;
+
 /**
  * Created by Sebastian on 05.04.2014.
  */
 @SpaceClass
-public class StreetPartUpdateTuple {
+public class StreetPartUpdateTuple implements Serializable{
 
     private Long logicalTimeStamp;
-    private String id;
+  //  private String id;
     private MapLocation location;
     private Integer roxelId;
     private Direction direction;
@@ -34,16 +36,6 @@ public class StreetPartUpdateTuple {
 
     public StreetPartUpdateTuple() {  }
 
-
-    @SpaceId(autoGenerate = true)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public Long getLogicalTimeStamp() {
         return logicalTimeStamp;
     }
@@ -60,6 +52,7 @@ public class StreetPartUpdateTuple {
         this.location = location;
     }
 
+    @SpaceId
     public Integer getRoxelId() {
         return roxelId;
     }
@@ -101,7 +94,6 @@ public class StreetPartUpdateTuple {
 
         if (crossroad != null ? !crossroad.equals(that.crossroad) : that.crossroad != null) return false;
         if (direction != that.direction) return false;
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
         if (logicalTimeStamp != null ? !logicalTimeStamp.equals(that.logicalTimeStamp) : that.logicalTimeStamp != null)
             return false;
@@ -114,7 +106,6 @@ public class StreetPartUpdateTuple {
     @Override
     public int hashCode() {
         int result = logicalTimeStamp != null ? logicalTimeStamp.hashCode() : 0;
-        result = 31 * result + (id != null ? id.hashCode() : 0);
         result = 31 * result + (location != null ? location.hashCode() : 0);
         result = 31 * result + (roxelId != null ? roxelId.hashCode() : 0);
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
