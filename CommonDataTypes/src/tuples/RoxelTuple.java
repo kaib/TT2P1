@@ -12,23 +12,24 @@ import java.io.Serializable;
  * Created by tobi on 31.03.14.
  */
 @SpaceClass
-public class RoxelTuple implements Serializable{
+public class RoxelTuple implements Serializable {
     private Integer positionX;
     private Integer PositionY;
     private Integer id;
     private CarTuple car;
     private Direction direction;
-    private boolean isCrossroad;
+    private Boolean crossroad;
 
-    public RoxelTuple() {}
+    public RoxelTuple() {
+    }
 
-    public RoxelTuple(Integer id, Integer positionX, Integer positionY, CarTuple car, Direction direction, boolean isCrossroad) {
+    public RoxelTuple(Integer id, Integer positionX, Integer positionY, CarTuple car, Direction direction, Boolean crossroad) {
         this.positionX = positionX;
         this.PositionY = positionY;
         this.id = id;
         this.car = car;
         this.direction = direction;
-        this.isCrossroad = isCrossroad;
+        this.crossroad = crossroad;
     }
 
     public Direction getDirection() {
@@ -63,12 +64,12 @@ public class RoxelTuple implements Serializable{
         PositionY = positionY;
     }
 
-    public boolean isCrossroad() {
-        return isCrossroad;
+    public Boolean getCrossroad() {
+        return crossroad;
     }
 
-    public void setCrossroad(boolean isCrossroad) {
-        this.isCrossroad = isCrossroad;
+    public void setCrossroad(Boolean crossroad) {
+        this.crossroad = crossroad;
     }
 
     @SpaceRouting
@@ -88,24 +89,36 @@ public class RoxelTuple implements Serializable{
                 ", PositionY=" + PositionY +
                 ", id=" + id +
                 ", car=" + car +
-                ", Direction=" + direction +
+                ", direction=" + direction +
+                ", crossroad=" + crossroad +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof RoxelTuple)) return false;
 
         RoxelTuple that = (RoxelTuple) o;
 
-        if (!id.equals(that.id)) return false;
+        if (PositionY != null ? !PositionY.equals(that.PositionY) : that.PositionY != null) return false;
+        if (car != null ? !car.equals(that.car) : that.car != null) return false;
+        if (crossroad != null ? !crossroad.equals(that.crossroad) : that.crossroad != null) return false;
+        if (direction != that.direction) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (positionX != null ? !positionX.equals(that.positionX) : that.positionX != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        int result = positionX != null ? positionX.hashCode() : 0;
+        result = 31 * result + (PositionY != null ? PositionY.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (car != null ? car.hashCode() : 0);
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        result = 31 * result + (crossroad != null ? crossroad.hashCode() : 0);
+        return result;
     }
 }

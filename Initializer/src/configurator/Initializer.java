@@ -6,6 +6,7 @@ import configurator.factories.RoxelTupleFactory;
 import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
 import others.Direction;
+import others.IdGenerator;
 import tuples.CarPositionUpdateTuple;
 import tuples.RoxelTuple;
 import tuples.config.ConfigurationTupel;
@@ -101,9 +102,13 @@ public class Initializer {
         List<RoxelTuple> roxels = roxelTupleFactory.createRoxelTuples(blockSize, mapSizeX, mapSizeY);
         List<RoxelTuple> roxelCarList = placeCars(cars, roxels);
         List<CarPositionUpdateTuple> carPostionUpdates = new CarPositionUpdateTupleFactory().createCarPositionUpdateTuples(roxelCarList);
+        for(RoxelTuple roxel:roxels) {
+            System.out.println(roxel);
+        }
         gigaspace.writeMultiple(roxels.toArray());
         gigaspace.writeMultiple(carPostionUpdates.toArray());
         gigaspace.write(new ConfigurationTupel(1, mapSizeX, mapSizeY, numberOfCars, blockSize, roxelSizeX, roxelSizeY, roxels));
+
     }
 
 
@@ -136,7 +141,7 @@ public class Initializer {
         while (!foundNonCrossRoadRoxel) {
             if (!freeRoxels.isEmpty()) {
                 result = freeRoxels.remove(rand.nextInt(freeRoxels.size()));
-                if (!result.isCrossroad()){
+                if (result.getCrossroad()!= null && !result.getCrossroad()){
                     foundNonCrossRoadRoxel = true;
                 }
             } else {

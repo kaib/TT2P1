@@ -19,7 +19,7 @@ public class CarPositionUpdateTuple {
     private Direction direction;
 
 
-    public CarPositionUpdateTuple(MapLocation mapLocation, int carId, long logicalTimeStamp, Direction direction) {
+    public CarPositionUpdateTuple(MapLocation mapLocation, Integer carId, Long logicalTimeStamp, Direction direction) {
         this.carId = carId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;

@@ -20,7 +20,12 @@ public class Starter {
         gigaspace = GigaSpaceConnector.getGigaSpace();
 
         //Warten, bis initialisierung abgeschlossen wurde...
-        ConfigurationTupel ct = gigaspace.read(new ConfigurationTupel(), NO_TIMEOUT);
+        ConfigurationTupel ct = null;
+        while(ct==null) {
+            ct = gigaspace.read(new ConfigurationTupel());
+            System.out.println("Configuration:pending");
+        }
+        System.out.println("Configuration:finished");
         //... und erst dann gehts weiter.
 
         //CarPool mit X Threads erzeugen...
@@ -31,7 +36,7 @@ public class Starter {
         carPool.startAllCars();
 
         LocalTrafficLight tl = new LocalTrafficLight();
-        tl.start();
+        //tl.start();
 
         System.out.println("End");
     }

@@ -22,7 +22,7 @@ public class StreetPartUpdateTuple {
     private Boolean isCrossing;
 
 
-    public StreetPartUpdateTuple(MapLocation mapLocation, int roxelId, long logicalTimeStamp, Direction direction, boolean isCrossing) {
+    public StreetPartUpdateTuple(MapLocation mapLocation, Integer roxelId, Long logicalTimeStamp, Direction direction, Boolean isCrossing) {
         this.roxelId = roxelId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;

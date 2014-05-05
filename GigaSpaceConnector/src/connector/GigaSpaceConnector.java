@@ -19,7 +19,7 @@ public class GigaSpaceConnector {
     public static GigaSpace getGigaSpace(){
         if (gigaSpace == null){
             UrlSpaceConfigurer configurer = new UrlSpaceConfigurer("jini://*/*/carSimulation");
-            gigaSpace = new GigaSpaceConfigurer(configurer).create();
+            gigaSpace = new GigaSpaceConfigurer(configurer).gigaSpace();
         }
         return gigaSpace;
     }

@@ -33,7 +33,7 @@ public class RoxelTupleFactory {
     }*/
 
 
-    public RoxelTuple createRoxelTuple(int positionX, int positionY, Direction direction, boolean isCrossing){
+    public RoxelTuple createRoxelTuple(Integer positionX, Integer positionY, Direction direction, Boolean isCrossing){
         return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,new NoCarTuple(), direction, isCrossing);
     }
 
@@ -50,11 +50,11 @@ public class RoxelTupleFactory {
             for (int y = 0; y < mapSizeY; y++) {
                 if ((x % (blockSize + 1) == 0) && (y % (blockSize + 1) == 0)) {
                     //Kreuzung
-                    result.add(createRoxelTuple(x,y,Direction.TODECIDE, true));
+                    result.add(createRoxelTuple(x,y,Direction.TODECIDE, Boolean.TRUE));
                 } else if ((x % (blockSize + 1) != 0) && (y % (blockSize + 1) == 0)) {
-                    result.add(createRoxelTuple(x,y,Direction.EAST, false));
+                    result.add(createRoxelTuple(x,y,Direction.EAST, Boolean.FALSE));
                 } else if ((x % (blockSize + 1) == 0) && (y % (blockSize + 1) != 0)) {
-                    result.add(createRoxelTuple(x,y,Direction.SOUTH,false));
+                    result.add(createRoxelTuple(x,y,Direction.SOUTH,Boolean.FALSE));
                 }
             }
         }

@@ -1,12 +1,13 @@
 package trafficLights;
 
 import com.j_spaces.core.client.SQLQuery;
-import connector.GigaSpaceConnector;
 import org.openspaces.core.GigaSpace;
+import org.openspaces.core.context.GigaSpaceContext;
 import org.openspaces.events.EventDriven;
 import org.openspaces.events.EventTemplate;
 import org.openspaces.events.adapter.SpaceDataEvent;
 import org.openspaces.events.notify.Notify;
+import org.openspaces.events.notify.NotifyType;
 import others.MapLocation;
 import tuples.RoxelTuple;
 import tuples.StreetPartUpdateTuple;
@@ -16,24 +17,24 @@ import java.util.Random;
 import static others.Direction.*;
 
 @EventDriven
-@Notify
+@Notify(performTakeOnNotify = true, ignoreEventOnNullTake = true)
+@NotifyType(write = true, update = true)
 public class TrafficLight {
 
     private static Random rand = new Random();
-    private GigaSpace gigaSpace = GigaSpaceConnector.getGigaSpace();
+    @GigaSpaceContext
+    GigaSpace gigaSpace;
 
     @EventTemplate
     public SQLQuery<RoxelTuple> template(){
-         return new SQLQuery<>(RoxelTuple.class,"direction = ?", TODECIDE);
+         return new SQLQuery<>(RoxelTuple.class,"direction = 'TODECIDE'");
     }
 
     @SpaceDataEvent
-    public RoxelTuple eventListener(RoxelTuple event){
+    public StreetPartUpdateTuple eventListener(RoxelTuple event){
         switchSignal(event);
-        StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple( new MapLocation(event.getPositionX(), event.getPositionY()), event.getId(),  0L, event.getDirection(), true);
-        gigaSpace.write(streetPartUpdateTuple);
         gigaSpace.write(event);
-        return event;
+       return new StreetPartUpdateTuple( new MapLocation(event.getPositionX(), event.getPositionY()), event.getId(),  0L, event.getDirection(), true);
     }
 
     private void switchSignal(RoxelTuple roxelTuple){

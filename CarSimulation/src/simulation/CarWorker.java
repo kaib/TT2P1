@@ -37,7 +37,9 @@ public class CarWorker extends Thread {
     @Override
     public void run() {
         // Sicherstellen, das Konfiguration abgeschlossen
-        configurationTupel = gigaSpace.read(new ConfigurationTupel(), NO_TIMEOUT);
+        while(configurationTupel == null) {
+            configurationTupel = gigaSpace.read(new ConfigurationTupel());
+        }
         carDriver = new CarDriver(gigaSpace,configurationTupel);
 
         log.info(String.format("CarWorker %d starts working", workerId));
@@ -69,8 +71,9 @@ public class CarWorker extends Thread {
     public void takeCar(){
 
         SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id != ?",-1);
-        carRoxel = gigaSpace.take(sql,NO_TIMEOUT);
-
+        while(carRoxel == null) {
+            carRoxel = gigaSpace.take(sql);
+        }
             log.info(String.format("CarWorker %d took car %d from [%d,%d]", workerId, carRoxel.getCar().getId(),carRoxel.getPositionX(),carRoxel.getPositionY()));
             carDriver.setCurrentPosition(carRoxel);
     }

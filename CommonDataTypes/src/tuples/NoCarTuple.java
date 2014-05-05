@@ -42,4 +42,32 @@ public class NoCarTuple implements CarTuple, Serializable{
     public void setId(Integer id) {
         throw new NotImplementedException();
     }
+
+    @Override
+    public String toString() {
+        return "NoCarTuple{" +
+                "direction=" + direction +
+                ", id=" + id +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof NoCarTuple)) return false;
+
+        NoCarTuple that = (NoCarTuple) o;
+
+        if (direction != that.direction) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = direction != null ? direction.hashCode() : 0;
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        return result;
+    }
 }

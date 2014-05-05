@@ -2,7 +2,6 @@ package others;
 
 import com.gigaspaces.client.ChangeSet;
 import com.j_spaces.core.client.SQLQuery;
-import interfaces.CarTuple;
 import org.openspaces.core.GigaSpace;
 import tuples.CarPositionUpdateTuple;
 import tuples.NoCarTuple;
@@ -105,7 +104,11 @@ public class CarDriver {
     }
 
     private RoxelTuple takeNextRoxel(SQLQuery<RoxelTuple> sql){
-        return gigaSpace.take(sql,NO_TIMEOUT);
+        RoxelTuple result = null;
+        while(result==null) {
+            result= gigaSpace.take(sql);
+        }
+        return result;
     }
 
     private void changePosition(RoxelTuple from, RoxelTuple to) {
@@ -117,7 +120,7 @@ public class CarDriver {
     }
 
     private void releaseRoxel(RoxelTuple from, RoxelTuple to){
-        if (from.isCrossroad()){
+        if (from.getCrossroad()){
             from.setDirection(TODECIDE);
         }
         //
