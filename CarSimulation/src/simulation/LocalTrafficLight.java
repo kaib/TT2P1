@@ -36,7 +36,7 @@ public class LocalTrafficLight extends Thread {
         RoxelTuple event=  gigaSpace.take(sql, GlobalConstances.NO_TIMEOUT);
         System.out.println(event);
         switchSignal(event);
-        StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple( new MapLocation(event.getPositionX(), event.getPositionY()), event.getId(),  0L, event.getDirection(), true);
+        StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple( new MapLocation(event.getPositionX(), event.getPositionY()), event.getId(),  0L, event.getDirection(), true,0);
 
         gigaSpace.write(streetPartUpdateTuple);
         System.out.println(event);
