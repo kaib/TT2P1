@@ -17,18 +17,20 @@ public class CarPositionUpdateTuple {
     private MapLocation location;
     private Integer carId;
     private Direction direction;
+    private Integer routing;
 
 
-    public CarPositionUpdateTuple(MapLocation mapLocation, Integer carId, Long logicalTimeStamp, Direction direction) {
+    public CarPositionUpdateTuple(MapLocation mapLocation, Integer carId, Long logicalTimeStamp, Direction direction, Integer routing) {
         this.carId = carId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;
         this.direction = direction;
+        this.routing = routing;
     }
 
     public CarPositionUpdateTuple() {  }
 
-    @SpaceRouting
+
     @SpaceId(autoGenerate = true)
     public String getId() {
         return id;
@@ -68,5 +70,14 @@ public class CarPositionUpdateTuple {
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    @SpaceRouting
+    public Integer getRouting() {
+        return routing;
+    }
+
+    public void setRouting(Integer routing) {
+        this.routing = routing;
     }
 }

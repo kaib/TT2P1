@@ -18,22 +18,23 @@ public class StreetPartUpdateTuple {
     private Integer roxelId;
     private Direction direction;
     private Boolean crossroad;
+    private Integer routing;
 
 
 
 
-    public StreetPartUpdateTuple(MapLocation mapLocation, Integer roxelId, Long logicalTimeStamp, Direction direction, Boolean crossroad) {
+    public StreetPartUpdateTuple(MapLocation mapLocation, Integer roxelId, Long logicalTimeStamp, Direction direction, Boolean crossroad, Integer routing) {
         this.roxelId = roxelId;
         this.location = mapLocation;
         this.logicalTimeStamp = logicalTimeStamp;
         this.direction = direction;
         this.crossroad = crossroad;
-
+        this.routing = routing;
     }
 
     public StreetPartUpdateTuple() {  }
 
-    @SpaceRouting
+
     @SpaceId(autoGenerate = true)
     public String getId() {
         return id;
@@ -82,6 +83,14 @@ public class StreetPartUpdateTuple {
     public void setCrossroad(Boolean crossroad) {
         this.crossroad = crossroad;
     }
+    @SpaceRouting
+    public Integer getRouting() {
+        return routing;
+    }
+
+    public void setRouting(Integer routing) {
+        this.routing = routing;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -96,6 +105,7 @@ public class StreetPartUpdateTuple {
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
         if (logicalTimeStamp != null ? !logicalTimeStamp.equals(that.logicalTimeStamp) : that.logicalTimeStamp != null)
             return false;
+        if (routing != null ? !routing.equals(that.routing) : that.routing != null) return false;
         if (roxelId != null ? !roxelId.equals(that.roxelId) : that.roxelId != null) return false;
 
         return true;
@@ -109,6 +119,7 @@ public class StreetPartUpdateTuple {
         result = 31 * result + (roxelId != null ? roxelId.hashCode() : 0);
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         result = 31 * result + (crossroad != null ? crossroad.hashCode() : 0);
+        result = 31 * result + (routing != null ? routing.hashCode() : 0);
         return result;
     }
 }

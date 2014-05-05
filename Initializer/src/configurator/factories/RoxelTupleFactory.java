@@ -17,24 +17,8 @@ public class RoxelTupleFactory {
     public RoxelTupleFactory() {
     }
 
-    /**
-
-    public List<RoxelTuple> createRoxelTuples(int blockSize, int mapSizeX, int mapSizeY) {
-        List<RoxelTuple> roxels = new ArrayList<>();
-        int roxelDistance = blockSize+1;
-        for (int x = 0; x < mapSizeX; x++) {
-            for (int y = 0; y < mapSizeY; y++) {
-                if (x%roxelDistance==0 || y%roxelDistance==0){
-                    roxels.add(createRoxelTuple(x,y));
-                }
-            }
-        }
-        return roxels;
-    }*/
-
-
-    public RoxelTuple createRoxelTuple(Integer positionX, Integer positionY, Direction direction, Boolean isCrossing){
-        return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,new NoCarTuple(), direction, isCrossing);
+    public RoxelTuple createRoxelTuple(Integer positionX, Integer positionY, Direction direction, Boolean isCrossing, Integer routing){
+        return new RoxelTuple(IdGenerator.getNewID(),positionX,positionY,new NoCarTuple(), direction, isCrossing, routing);
     }
 
     /**
@@ -46,16 +30,23 @@ public class RoxelTupleFactory {
      */
     public List<RoxelTuple> createRoxelTuples(int blockSize, int mapSizeX, int mapSizeY) {
         List<RoxelTuple> result = new LinkedList<>();
+        int shardCountX = 0;
+        int shardCountY = 0;
         for (int x = 0; x < mapSizeX; x++) {
+            if ((x+2)%5==0){shardCountX=shardCountY+1;}
+            shardCountY = shardCountX;
             for (int y = 0; y < mapSizeY; y++) {
+
+                if((y+2)%5==0){shardCountY++;}
                 if ((x % (blockSize + 1) == 0) && (y % (blockSize + 1) == 0)) {
                     //Kreuzung
-                    result.add(createRoxelTuple(x,y,Direction.TODECIDE, Boolean.TRUE));
+                    result.add(createRoxelTuple(x,y,Direction.TODECIDE, Boolean.TRUE,shardCountY));
                 } else if ((x % (blockSize + 1) != 0) && (y % (blockSize + 1) == 0)) {
-                    result.add(createRoxelTuple(x,y,Direction.EAST, Boolean.FALSE));
+                    result.add(createRoxelTuple(x,y,Direction.EAST, Boolean.FALSE,shardCountY));
                 } else if ((x % (blockSize + 1) == 0) && (y % (blockSize + 1) != 0)) {
-                    result.add(createRoxelTuple(x,y,Direction.SOUTH,Boolean.FALSE));
+                    result.add(createRoxelTuple(x,y,Direction.SOUTH,Boolean.FALSE,shardCountY));
                 }
+
             }
         }
         return result;

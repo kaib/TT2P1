@@ -36,7 +36,7 @@ public class TrafficLight {
     public StreetPartUpdateTuple eventListener(RoxelTuple event){
 
         switchSignal(event);
-        StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple(new MapLocation(event.getPositionX(),event.getPositionY()),event.getId(),0l,event.getDirection(),event.getCrossroad());
+        StreetPartUpdateTuple streetPartUpdateTuple = new StreetPartUpdateTuple(new MapLocation(event.getPositionX(),event.getPositionY()),event.getId(),0l,event.getDirection(),event.getCrossroad(),0);
         if(streetPartUpdateTuple != null) {
             streetPartUpdateTuple.setDirection(event.getDirection());
         }

@@ -28,6 +28,6 @@ public class CarPositionUpdateTupleFactory {
     }
 
     public CarPositionUpdateTuple createCarPostionUpdateTuple(RoxelTuple roxel) {
-        return new CarPositionUpdateTuple(new MapLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCar().getId(),0L, roxel.getCar().getDirection());
+        return new CarPositionUpdateTuple(new MapLocation(roxel.getPositionX(),roxel.getPositionY()),roxel.getCar().getId(),0L, roxel.getCar().getDirection(),0);
     }
 }
