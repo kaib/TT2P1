@@ -12,8 +12,11 @@ import static others.GlobalConstances.NO_TIMEOUT;
 public class Starter {
     public static void main(String[] args){
         GigaSpace gigaSpace = GigaSpaceConnector.getGigaSpace();
-        ConfigurationTupel ct = gigaSpace.read(new ConfigurationTupel(), NO_TIMEOUT);
 
+        ConfigurationTupel ct = gigaSpace.read(new ConfigurationTupel());
+        while(ct == null) {
+            ct = gigaSpace.read(new ConfigurationTupel());
+        }
         ExternelDriver externelDriver = new ExternelDriver(gigaSpace);
 
         externelDriver.start();

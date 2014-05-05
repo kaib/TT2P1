@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-import static others.GlobalConstances.NO_TIMEOUT;
 
 /**
  * Created by tobi on 08.04.14.
@@ -32,7 +31,9 @@ public class ExternelDriver {
 
     public void start() {
         // Sicherstellen, das Konfiguration abgeschlossen
-        configurationTupel = gigaSpace.read(new ConfigurationTupel(), NO_TIMEOUT);
+        while(configurationTupel == null) {
+            configurationTupel = gigaSpace.read(new ConfigurationTupel());
+        }
         carDriver = new CarDriver(gigaSpace,configurationTupel);
 
         System.out.println("Hey Guy!");
@@ -76,7 +77,9 @@ public class ExternelDriver {
 
     public void takeCar(){
         SQLQuery<RoxelTuple> sql = new SQLQuery<>(RoxelTuple.class,"car.id != ?",-1);
-        carRoxel = gigaSpace.take(sql,NO_TIMEOUT);
+        while(carRoxel == null) {
+            carRoxel = gigaSpace.take(sql);
+        }
         carDriver.setCurrentPosition(carRoxel);
     }
 
